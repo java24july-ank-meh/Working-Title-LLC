@@ -9,9 +9,9 @@ import javax.persistence.Table;
 @Table(name="ORDERSTATUS")
 public class OrderStatus {
 	
-	@Id
+	
 	private int statusID;
-	@Column
+	
 	private String statusName;
 	
 	// Constructors
@@ -25,12 +25,17 @@ public class OrderStatus {
 	}
 	
 	// Getters and Setters
+	
+	@Id
+	@Column(name="statusID", unique=true, nullable=false)
 	public int getStatusID() {
 		return statusID;
 	}
 	public void setStatusID(int statusID) {
 		this.statusID = statusID;
 	}
+	
+	@Column(name="statusName", unique=true, nullable=false)
 	public String getStatusName() {
 		return statusName;
 	}

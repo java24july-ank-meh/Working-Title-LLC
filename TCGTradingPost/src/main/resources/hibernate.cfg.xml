@@ -28,6 +28,9 @@
 
 
 		<mapping class="com.tcgtp.hibernate.Order"></mapping>
+		<mapping class="com.tcgtp.hibernate.OrderStatus"></mapping>
+		<mapping class="com.tcgtp.hibernate.Customer"></mapping>
+		<mapping class="com.tcgtp.hibernate.Inventory"></mapping>
 
 
 	</session-factory>

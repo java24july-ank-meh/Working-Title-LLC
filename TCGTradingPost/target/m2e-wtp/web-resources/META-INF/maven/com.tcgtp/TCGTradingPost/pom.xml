@@ -65,7 +65,6 @@
   </dependencies>
   <build>
     <finalName>TCG Trading Post</finalName>
-	<sourceDirectory>src</sourceDirectory>
 	<plugins>
 		<plugin>
 			<artifactId>maven-compiler-plugin</artifactId>

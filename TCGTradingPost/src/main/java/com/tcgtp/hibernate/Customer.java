@@ -26,27 +26,22 @@ public class Customer {
 	private String username;
 	private String password;
 	private String email;
-	private boolean locked;
-	private Set<String> userroles;
+	private int locked;
+	//private Set<String> userroles;
 	
 	// Constructors
 	public Customer() {
 		super();
 	}
-	public Customer(long customerID, String username, String password, String email) {
+	public Customer(String username, String password, String email) {
 		super();
-		this.customerID = customerID;
 		this.username = username;
 		this.password = password;
 		this.email = email;
+		this.locked = 0;
 	}
 	
-	// to String
-	@Override
-	public String toString() {
-		return "Customer [customerID=" + customerID + ", username=" + username + ", password=" + password + ", email="
-				+ email + "]";
-	}
+	
 	
 	// Getters and Setters
 	public void setCustomerID(long customerID) {
@@ -61,15 +56,15 @@ public class Customer {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public void setLocked(boolean locked) {
+	public void setLocked(int locked) {
 		this.locked = locked;
 	}
-	public void setUserroles(Set<String> userroles) {
+	/*public void setUserroles(Set<String> userroles) {
 		this.userroles = userroles;
-	}
+	}*/
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDER_ID_GEN")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_CUSTOMER_ID_GEN")
 	@Column(name="customerID", unique=true, nullable=false)
 	public long getCustomerID() {
 		return customerID;
@@ -87,13 +82,13 @@ public class Customer {
 		return email;
 	}
 	@Column(name="locked", nullable=false)
-	public boolean isLocked() {
+	public int isLocked() {
 		return locked;
 	}
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "CUSTOMER")
+	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "CUSTOMER")
 	public Set<String> getUserroles() {
 		return userroles;
-	}
+	}*/
 	
 	
 	
