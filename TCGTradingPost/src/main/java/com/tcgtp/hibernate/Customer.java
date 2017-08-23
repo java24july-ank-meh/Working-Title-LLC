@@ -1,10 +1,14 @@
 package com.tcgtp.hibernate;
 
+import java.util.Set;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -18,14 +22,12 @@ import javax.persistence.Table;
 @Table(name="CUSTOMER")
 public class Customer {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDER_ID_GEN")
 	private long customerID;
-	
-	@Column
 	private String username;
 	private String password;
 	private String email;
+	private boolean locked;
+	private Set<String> userroles;
 	
 	// Constructors
 	public Customer() {
@@ -39,37 +41,58 @@ public class Customer {
 		this.email = email;
 	}
 	
-	// Getters and Setters
-	public long getCustomerID() {
-		return customerID;
-	}
-	public void setCustomerID(long customerID) {
-		this.customerID = customerID;
-	}
-	public String getUsername() {
-		return username;
-	}
-	public void setUsername(String username) {
-		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getEmail() {
-		return email;
-	}
-	public void setEmail(String email) {
-		this.email = email;
-	}
-	
 	// to String
 	@Override
 	public String toString() {
 		return "Customer [customerID=" + customerID + ", username=" + username + ", password=" + password + ", email="
 				+ email + "]";
+	}
+	
+	// Getters and Setters
+	public void setCustomerID(long customerID) {
+		this.customerID = customerID;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public void setLocked(boolean locked) {
+		this.locked = locked;
+	}
+	public void setUserroles(Set<String> userroles) {
+		this.userroles = userroles;
+	}
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDER_ID_GEN")
+	@Column(name="customerID", unique=true, nullable=false)
+	public long getCustomerID() {
+		return customerID;
+	}
+	@Column(name="username", unique=true, nullable=false, length=30)
+	public String getUsername() {
+		return username;
+	}
+	@Column(name="password", nullable=false, length=30)
+	public String getPassword() {
+		return password;
+	}
+	@Column(name="email", unique=true, nullable=false, length=60)
+	public String getEmail() {
+		return email;
+	}
+	@Column(name="locked", nullable=false)
+	public boolean isLocked() {
+		return locked;
+	}
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "CUSTOMER")
+	public Set<String> getUserroles() {
+		return userroles;
 	}
 	
 	
