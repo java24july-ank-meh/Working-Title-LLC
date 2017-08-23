@@ -12,11 +12,11 @@
 
  <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 
- <property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
+ <property name="hibernate.connection.url">jdbc:oracle:thin:@tcg-trading-post.cnktivmnsdic.us-east-2.rds.amazonaws.com:1521:ORCL</property>
 
- <property name="hibernate.connection.username">SYSTEM</property>
+ <property name="hibernate.connection.username">tcguser</property> <!-- connecting to the RDS instance -->
 
- <property name="hibernate.connection.password">p4ssw0rd</property>
+ <property name="hibernate.connection.password">NotAnExampleP4ssword</property> <!-- connecting to the RDS instance -->
 
  <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
 
@@ -28,6 +28,8 @@
 
 
  <mapping class="com.tcgtp.hibernate.Order"></mapping>
+ <mapping class="com.tcgtp.hibernate.Customer"></mapping>
+ <mapping class="com.tcgtp.hibernate.Inventory"></mapping>
 
 
 </session-factory>

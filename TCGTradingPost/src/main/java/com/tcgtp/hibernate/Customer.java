@@ -19,7 +19,7 @@ import javax.persistence.Table;
 public class Customer {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDER_ID_GEN")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_CUSTOMER_ID_GEN")
 	private long customerID;
 	
 	@Column
