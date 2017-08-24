@@ -24,24 +24,22 @@ public class Inventory {
 	private String cardName;
 	private String game;
 	private long cardID;
+	private double price;
+	private int stock;
 	
 	// Constructors
 	public Inventory() {
 		super();
 	}
-	public Inventory(String cardName, String game, long cardID) {
+	public Inventory(String cardName, String game, long cardID, double price, int stock) {
 		super();
 		this.cardName = cardName;
 		this.game = game;
 		this.cardID = cardID;
+		this.price = price;
+		this.stock = stock;
 	}
 	
-	
-	// to String
-	@Override
-	public String toString() {
-		return "Inventory [itemID=" + itemID + ", cardName=" + cardName + ", game=" + game + ", cardID=" + cardID + "]";
-	}
 	
 	//Getters and Setters
 	
@@ -59,9 +57,17 @@ public class Inventory {
 	public String getGame() {
 		return game;
 	}
-	@Column(name="cardID", nullable=false)
+	@Column(name="cardID", nullable=false, unique=true)
 	public long getCardID() {
 		return cardID;
+	}
+	@Column(name="price", nullable=false)
+	public double getPrice() {
+		return price;
+	}
+	@Column(name="stock", nullable=false)
+	public double getStock() {
+		return stock;
 	}
 	
 	
@@ -76,6 +82,12 @@ public class Inventory {
 	}
 	public void setCardID(long cardID) {
 		this.cardID = cardID;
+	}
+	public void setPrice(double price) {
+		this.price = price;
+	}
+	public void setStock(int stock)	 {
+		this.stock = stock;
 	}
 	
 	

@@ -14,38 +14,37 @@ import javax.persistence.Table;
 
 @Entity
 @SequenceGenerator(
-		name="SQ_CUSTOMER_ID_GEN",
-		sequenceName="SQ_CUSTOMER_ID_GEN",
+		name="SQ_USER_ID_GEN",
+		sequenceName="SQ_USER_ID_GEN",
 		initialValue=2000000,
 		allocationSize=1
 		)
-@Table(name="CUSTOMER")
-public class Customer {
+@Table(name="USER")
+public class User {
 
-	private long customerID;
+	private long userID;
 	private String username;
 	private String password;
 	private String email;
 	private int locked;
-	//private Set<String> userroles;
+	private int userroleID; // 1 = customer, 2 = employee
 	
 	// Constructors
-	public Customer() {
+	public User() {
 		super();
 	}
-	public Customer(String username, String password, String email) {
+	public User(String username, String password, String email, int userroleID) {
 		super();
 		this.username = username;
 		this.password = password;
 		this.email = email;
 		this.locked = 0;
+		this.userroleID = userroleID;
 	}
 	
-	
-	
 	// Getters and Setters
-	public void setCustomerID(long customerID) {
-		this.customerID = customerID;
+	public void setUserID(long customerID) {
+		this.userID = customerID;
 	}
 	public void setUsername(String username) {
 		this.username = username;
@@ -59,15 +58,15 @@ public class Customer {
 	public void setLocked(int locked) {
 		this.locked = locked;
 	}
-	/*public void setUserroles(Set<String> userroles) {
-		this.userroles = userroles;
-	}*/
+	public void setUserroleID(int userroleID) {
+		this.userroleID = userroleID;
+	}
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_CUSTOMER_ID_GEN")
-	@Column(name="customerID", unique=true, nullable=false)
-	public long getCustomerID() {
-		return customerID;
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_USER_ID_GEN")
+	@Column(name="userID", unique=true, nullable=false)
+	public long getUserID() {
+		return userID;
 	}
 	@Column(name="username", unique=true, nullable=false, length=30)
 	public String getUsername() {
@@ -85,11 +84,11 @@ public class Customer {
 	public int isLocked() {
 		return locked;
 	}
-	/*@OneToMany(fetch = FetchType.LAZY, mappedBy = "CUSTOMER")
-	public Set<String> getUserroles() {
-		return userroles;
-	}*/
 	
+	@Column(name="userroleID", nullable=false)
+	public int getUserroleID() {
+		return userroleID;
+	}
 	
 	
 }
