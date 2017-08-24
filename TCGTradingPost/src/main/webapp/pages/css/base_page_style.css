@@ -8,6 +8,11 @@
     font-style: normal;
 
 }
+
+body {
+	font-family: 'Acme', sans-serif;
+}
+
 #background {
 	position: fixed;
 	top: 0;

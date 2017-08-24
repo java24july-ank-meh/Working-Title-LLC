@@ -1,0 +1,38 @@
+#card_search_container {
+	z-index: 0;
+	position: absolute;
+	margin-top: 200px;
+	color: black;
+	text-shadow: 0 0 8px white;
+	font-size: 1.5em;
+	width: 100%;
+	text-align: center;
+}
+
+#group_card_name {
+	width: 540px;
+	margin: auto;
+}
+#group_game_name{
+	width: 240px;
+	margin: auto;
+}
+#group_set_name {
+	width: 540px;
+	margin: auto;
+}
+#group_price_range {
+	width: 540px;
+	margin: auto;
+}
+#input_price_range_min {
+	margin: 0 0 0 0;
+	width: 120px;
+	display: inline;
+}
+#input_price_range_max {
+	margin: 0 0 0 0;
+	width: 120px;
+	display: inline;
+	
+}
