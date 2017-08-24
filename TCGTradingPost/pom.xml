@@ -8,6 +8,9 @@
   <name>TCGTradingPost Maven Webapp</name>
   <url>http://maven.apache.org</url>
   <dependencies>
+  	<!-- Spring framework -->
+    <!-- Spring Security -->
+    
   	<dependency>
         <groupId>javax.servlet</groupId>
         <artifactId>servlet-api</artifactId>
@@ -61,6 +64,16 @@
 	</dependency>
   </dependencies>
   <build>
-    <finalName>TCGTradingPost</finalName>
+    <finalName>TCG Trading Post</finalName>
+	<plugins>
+		<plugin>
+			<artifactId>maven-compiler-plugin</artifactId>
+			<version>3.6.1</version>
+			<configuration>
+				<source>1.8</source>
+				<target>1.8</target>
+			</configuration>
+		</plugin>
+	</plugins>
   </build>
 </project>
