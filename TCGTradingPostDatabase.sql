@@ -1,25 +1,6 @@
-/*Drop database if it exists*/
-DROP USER tcgtp CASCADE;
-
-/*Create the database user*/
-CREATE USER tcgtp
-IDENTIFIED BY p4ssw0rd
-DEFAULT TABLESPACE users
-TEMPORARY TABLESPACE temp
-QUOTA 10M ON users;
-
-GRANT connect to tcgtp;
-GRANT resource to tcgtp;
-GRANT create session to tcgtp;
-GRANT CREATE TABLE TO tcgtp;
-GRANT CREATE view To tcgtp;
-
-/*Connect as new user, otherwise will use current user*/
-CONNECT tcgtp/p4ssw0rd;
-
 
 /* Create tables */
-Create table USER (
+Create table TCGTP_USERS (
     userID NUMBER(*,0) primary key,
     username VARCHAR2(30),
     password VARCHAR2(30),
