@@ -8,9 +8,9 @@
 
 <hibernate-configuration>
 
-<session-factory>
+	<session-factory>
 
- <property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
+		<property name="hibernate.connection.driver_class">oracle.jdbc.driver.OracleDriver</property>
 
  <property name="hibernate.connection.url">jdbc:oracle:thin:@tcg-trading-post.cnktivmnsdic.us-east-2.rds.amazonaws.com:1521:ORCL</property>
 
@@ -18,20 +18,27 @@
 
  <property name="hibernate.connection.password">NotAnExampleP4ssword</property> <!-- connecting to the RDS instance -->
 
- <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+<!--	this is the old information for localhost connections. For localhost testing, uncomment this blerb.	
+		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
 
- <property name="show_sql">true</property>
+		<property name="hibernate.connection.username">SYSTEM</property>
 
- <property name="hbm2ddl.auto">update</property>
+		<property name="hibernate.connection.password">p4ssw0rd</property> -->
 
- <property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+
+		<property name="show_sql">true</property>
+
+		<property name="hbm2ddl.auto">update</property>
+
+		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
+
+		<mapping class="com.tcgtp.hibernate.Order"></mapping>
+		<mapping class="com.tcgtp.hibernate.OrderStatus"></mapping>
+		<mapping class="com.tcgtp.hibernate.Customer"></mapping>
+		<mapping class="com.tcgtp.hibernate.Inventory"></mapping>
 
 
- <mapping class="com.tcgtp.hibernate.Order"></mapping>
- <mapping class="com.tcgtp.hibernate.Customer"></mapping>
- <mapping class="com.tcgtp.hibernate.Inventory"></mapping>
-
-
-</session-factory>
+	</session-factory>
 
 </hibernate-configuration>

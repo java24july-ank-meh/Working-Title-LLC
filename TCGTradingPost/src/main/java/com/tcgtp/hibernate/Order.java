@@ -15,16 +15,14 @@ import javax.persistence.Table;
 @SequenceGenerator(
 		name="SQ_ORDER_ID_GEN",
 		sequenceName="SQ_ORDER_ID_GEN",
-		initialValue=1000000, allocationSize=1
+		initialValue=3000000, allocationSize=1
 		)
 @Table(name="ORDERS")
 public class Order {
 
-	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDER_ID_GEN")
+	
 	private long orderID;
 	
-	@Column
 	private int customerID;
 	private Date datePlaced;
 	private String shippingAddress;
@@ -43,43 +41,54 @@ public class Order {
 		this.statusID = statusID;
 	}
 	
-	// Getters and Setters
-	public long getOrderID() {
-		return orderID;
-	}
-	public void setOrderID(long orderID) {
-		this.orderID = orderID;
-	}
-	public int getCustomerID() {
-		return customerID;
-	}
-	public void setCustomerID(int customerID) {
-		this.customerID = customerID;
-	}
-	public Date getDatePlaced() {
-		return datePlaced;
-	}
-	public void setDatePlaced(Date datePlaced) {
-		this.datePlaced = datePlaced;
-	}
-	public String getShippingAddress() {
-		return shippingAddress;
-	}
-	public void setShippingAddress(String shippingAddress) {
-		this.shippingAddress = shippingAddress;
-	}
-	public int getStatusID() {
-		return statusID;
-	}
-	public void setStatusID(int statusID) {
-		this.statusID = statusID;
-	}
 	
 	// to String
 	@Override
 	public String toString() {
 		return "Order [orderID=" + orderID + ", customerID=" + customerID + ", datePlaced=" + datePlaced
 				+ ", shippingAddress=" + shippingAddress + ", statusID=" + statusID + "]";
+	}
+	
+	//Getters and Setters
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDER_ID_GEN")
+	@Column(name="orderID", unique=true, nullable=false)
+	public long getOrderID() {
+		return orderID;
+	}
+	@Column(name="customerID", nullable=false)
+	public int getCustomerID() {
+		return customerID;
+	}
+	@Column(name="datePlaced", nullable=false)
+	public Date getDatePlaced() {
+		return datePlaced;
+	}
+	@Column(name="shippingAddress", nullable=false)
+	public String getShippingAddress() {
+		return shippingAddress;
+	}
+	@Column(name="statusID", nullable=false)
+	public int getStatusID() {
+		return statusID;
+	}
+	
+	
+	public void setOrderID(long orderID) {
+		this.orderID = orderID;
+	}
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
+	}
+	public void setDatePlaced(Date datePlaced) {
+		this.datePlaced = datePlaced;
+	}
+	public void setShippingAddress(String shippingAddress) {
+		this.shippingAddress = shippingAddress;
+	}
+	public void setStatusID(int statusID) {
+		this.statusID = statusID;
 	}
 	
 	
