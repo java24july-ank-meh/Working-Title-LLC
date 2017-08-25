@@ -15,13 +15,13 @@ public class Driver {
 			Session session = sf.openSession();
 			
 			Transaction tx2 = session.beginTransaction();
-			Inventory item = new Inventory("Storm Crow", "Magic The Gathering", 83282);
+			Inventory item = new Inventory("Storm Crow", "Magic The Gathering", 83282, 0.50, 10);
 			session.save(item);
 			session.flush();
 			tx2.commit();
 			
 			Transaction tx1 = session.beginTransaction();
-			Customer user = new Customer("vcommero", "p4ssw0rd", "vacommero@yahoo.com");
+			User user = new User("vcommero", "p4ssw0rd", "vacommero@yahoo.com", 1);
 			session.save(user);
 			session.flush();
 			tx1.commit();
