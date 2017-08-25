@@ -19,7 +19,7 @@ import javax.persistence.Table;
 		initialValue=2000000,
 		allocationSize=1
 		)
-@Table(name="TCGTP_USERS")
+@Table(name="TCGTPUSERS")
 public class User {
 
 	private long userID;
@@ -64,22 +64,26 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_USER_ID_GEN")
-	@Column(name="userID", unique=true, nullable=false)
+	@Column(name="userID")
 	public long getUserID() {
 		return userID;
 	}
+	
 	@Column(name="username", unique=true, nullable=false, length=30)
 	public String getUsername() {
 		return username;
 	}
+	
 	@Column(name="password", nullable=false, length=30)
 	public String getPassword() {
 		return password;
 	}
+	
 	@Column(name="email", unique=true, nullable=false, length=60)
 	public String getEmail() {
 		return email;
 	}
+	
 	@Column(name="locked", nullable=false)
 	public int isLocked() {
 		return locked;

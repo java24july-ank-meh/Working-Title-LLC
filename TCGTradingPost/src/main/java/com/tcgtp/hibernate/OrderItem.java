@@ -48,7 +48,7 @@ public class OrderItem {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDERITEM_ID_GEN")
-	@Column(name="orderItemID", unique=true, nullable=false)
+	@Column(name="orderItemID")
 	public long getOrderItemID() {
 		return orderItemID;
 	}
