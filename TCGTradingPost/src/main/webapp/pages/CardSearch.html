@@ -18,6 +18,7 @@
 	</head>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	<script src="js/cardSearch.js"></script>
 	
 	<body ng-app="searchApp">
 		<header class="page-header">
@@ -37,7 +38,7 @@
 			</div>
 		</div>
 		
-		<div id="card_search_container">
+		<div id="card_search_container" ng-controller="searchCtrl">
 			<form id="card_search_form">
 				<div class="form-group" id="group_card_name">
 					<label for="input_card_name">Card Name</label>
@@ -46,7 +47,6 @@
 				<div class="form-group" id="group_game_name">
 					<label for="input_game_name">Game</label>
 					<select class="form-control" id="input_game_name">
-						<option></option>
 						<option>Magic the Gathering</option>
 						<option>Pokemon</option>
 						<option>Star Wars: Destiny</option>
@@ -54,7 +54,7 @@
 				</div>
 				<div class="form-group" id="group_set_name">
 					<label for="input_set_name">Set</label>
-					<input type="text" class="form-control" id="input_set_name" placeholder="e.g. 8th Edition"/>
+					<input type="text" class="form-control" id="input_set_name" placeholder="e.g. Eighth Edition"/>
 				</div>
 				<div class="form-group" id="group_price_range">
 					<label for="input_price_range_div">Price Range (USD)</label>
@@ -64,20 +64,21 @@
 						<input type="number" class="form-control" id="input_price_range_max" placeholder="999.99" step="0.01" min="0.00"/>
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary" id="search_btn" onsubmit="onSubmitFunc()" style="width: 240px;">Search</button>
+				<button type="button" class="btn btn-primary" id="search_btn" ng-click="onSubmitFunc()" style="width: 240px;">Search</button>
 			</form>
 			
 			<!-- Use Angular ng-repeat to display results -->
 			<div id="search_result_container">
-				<div class="search_result_table" ng-repeat="search_result in searchResults">
-					<img src={{search_result.img}} width="223px" height="310px"></img>
+				<div class="search_result_table" ng-repeat="search_result in apiSearchResults">
+					<img src={{search_result.imageUrl}} width="223px" height="310px"></img>
 					<div class="search_result_table_desc">
 						<h1>{{search_result.name}}</h1>
-						<h3>{{search_result.game}}</h3>
-						<p>{{search_result.set}}</p><br/>
+						<p>{{search_result.setName}}</p>
+						<p>{{search_result.set}}</p>
+						<br/><br/>
 						<div class="buy_div">
-							<button class="btn btn-default btn-xs">Add to Cart</button>
-							<p>Price: ${{search_result.price}}</p>
+							<p>Price: $0.50</p>
+							<button class="btn btn-default btn-xs" onclick="buyBtnFunc()">Add to Cart</button>
 						</div>
 					</div>
 				</div>
