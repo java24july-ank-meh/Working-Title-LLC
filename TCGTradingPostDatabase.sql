@@ -1,6 +1,6 @@
 
 /* Create tables */
-Create table TCGTP_USERS (
+Create table TCGTPUSERS (
     userID NUMBER(*,0) primary key,
     username VARCHAR2(30),
     password VARCHAR2(30),

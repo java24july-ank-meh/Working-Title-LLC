@@ -19,7 +19,7 @@
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 	
-	<body>
+	<body ng-app="searchApp">
 		<header class="page-header">
 			<div id="header_banner">
 				<h1>Card Search</h1>
@@ -69,15 +69,20 @@
 			
 			<!-- Use Angular ng-repeat to display results -->
 			<div id="search_result_container">
-				<div class="search_result_table">
-					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=1672&type=card" width="223px" height="310px"></img>
+				<div class="search_result_table" ng-repeat="search_result in searchResults">
+					<img src={{search_result.img}} width="223px" height="310px"></img>
 					<div class="search_result_table_desc">
-						<h1>Nicol Bolas</h1>
-						<p>{2}{U}{U}{B}{B}{R}{R}</p>
-						<p>Flying\nAt the beginning of your upkeep, sacrifice Nicol Bolas unless you pay {U}{B}{R}.\nWhenever Nicol Bolas deals damage to an opponent, that player discards his or her hand.</p>
+						<h1>{{search_result.name}}</h1>
+						<h3>{{search_result.game}}</h3>
+						<p>{{search_result.set}}</p><br/>
+						<div class="buy_div">
+							<button class="btn btn-default btn-xs">Add to Cart</button>
+							<p>Price: ${{search_result.price}}</p>
+						</div>
 					</div>
 				</div>
 			</div>
+			
 		</div>
 	</body>
 </html>

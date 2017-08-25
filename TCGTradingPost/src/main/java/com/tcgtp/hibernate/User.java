@@ -19,7 +19,7 @@ import javax.persistence.Table;
 		initialValue=2000000,
 		allocationSize=1
 		)
-@Table(name="TCGTP_USERS")
+@Table(name="TCGTPUSERS")
 public class User {
 
 	private long userID;
