@@ -1,7 +1,7 @@
 let searchResultsArr = [];
 
 let searchApp = angular.module("searchApp", []);
-searchApp.controller("searchCtrl", function($scope)) {
+searchApp.controller("searchCtrl", function($scope) {
 	$scope.searchResults = searchResultsArr;
 });
 
