@@ -16,7 +16,9 @@
 			charset="utf-8">
 		<link rel="stylesheet" href="./css/cardSearch.css" type="text/css">
 	</head>
-
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+	
 	<body>
 		<header class="page-header">
 			<div id="header_banner">
@@ -62,8 +64,20 @@
 						<input type="number" class="form-control" id="input_price_range_max" placeholder="999.99" step="0.01" min="0.00"/>
 					</div>
 				</div>
-				<button type="submit" class="btn btn-primary" id="search_btn" style="width: 240px;">Search</button>
+				<button type="submit" class="btn btn-primary" id="search_btn" onsubmit="onSubmitFunc()" style="width: 240px;">Search</button>
 			</form>
+			
+			<!-- Use Angular ng-repeat to display results -->
+			<div id="search_result_container">
+				<div class="search_result_table">
+					<img src="http://gatherer.wizards.com/Handlers/Image.ashx?multiverseid=1672&type=card" width="223px" height="310px"></img>
+					<div class="search_result_table_desc">
+						<h1>Nicol Bolas</h1>
+						<p>{2}{U}{U}{B}{B}{R}{R}</p>
+						<p>Flying\nAt the beginning of your upkeep, sacrifice Nicol Bolas unless you pay {U}{B}{R}.\nWhenever Nicol Bolas deals damage to an opponent, that player discards his or her hand.</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>
