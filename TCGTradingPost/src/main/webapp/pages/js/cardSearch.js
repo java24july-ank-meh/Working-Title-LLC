@@ -1,3 +1,4 @@
+/*
 let searchResultsArr = [];
 
 let searchApp = angular.module("searchApp", []);
@@ -18,3 +19,5 @@ let onSubmitFunc = function() {
 		
 	}
 }
+
+*/
