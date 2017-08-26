@@ -45,7 +45,7 @@ public class Inventory {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_INVENTORY_ID_GEN")
-	@Column(name="itemID", unique=true, nullable=false)
+	@Column(name="itemID")
 	public long getItemID() {
 		return itemID;
 	}

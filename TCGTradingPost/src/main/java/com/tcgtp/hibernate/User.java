@@ -64,7 +64,7 @@ public class User {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_USER_ID_GEN")
-	@Column(name="userID", unique=true, nullable=false)
+	@Column(name="userID")
 	public long getUserID() {
 		return userID;
 	}

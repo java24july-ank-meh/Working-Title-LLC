@@ -29,7 +29,7 @@
 
 		<property name="show_sql">true</property>
 
-		<property name="hbm2ddl.auto">update</property> <!-- update, create, create-drop -->
+		<property name="hbm2ddl.auto">create</property> <!-- update, create, create-drop -->
 
 		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
 
