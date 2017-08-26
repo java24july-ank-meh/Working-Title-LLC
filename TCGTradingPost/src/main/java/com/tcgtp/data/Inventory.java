@@ -1,4 +1,4 @@
-package com.tcgtp.hibernate;
+package com.tcgtp.data;
 
 import javax.persistence.*;
 

@@ -1,4 +1,4 @@
-package com.tcgtp.hibernate;
+/*package com.tcgtp.hibernate;
 
 import java.util.Set;
 
@@ -92,3 +92,4 @@ public class User {
 	
 	
 }
+*/

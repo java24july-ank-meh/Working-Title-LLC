@@ -1,4 +1,4 @@
-package com.tcgtp.hibernate;
+/*package com.tcgtp.hibernate;
 
 import java.util.Date;
 
@@ -95,3 +95,4 @@ public class Order {
 	
 	
 }
+*/

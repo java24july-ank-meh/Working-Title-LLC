@@ -1,0 +1,59 @@
+@charset "ISO-8859-1";
+
+@font-face {
+    font-family: 'dark_crystal';
+    src: url('fonts/dc_s-webfont.woff2') format('woff2'),
+         url('fonts/dc_s-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+body {
+	font-family: 'Acme', sans-serif;
+}
+
+#background {
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	overflow: hidden;
+	z-index: -999;
+}
+#background_img {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+}
+
+.page-header {
+	position: absolute;
+	width: 100%;
+	text-align: center;
+	background-image: url('../images/parchment.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 0 0 0 0;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	z-index: 999;
+}
+#header_banner h1{
+	font-family: 'skeksisregular';
+	font-size: 400%;
+	color: black;
+	text-shadow: 0 0 8px white;
+	padding-bottom: 8px;
+}
+
+#nav_bar {
+	text-align: left;
+	background-color: black;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}

@@ -1,4 +1,4 @@
-package com.tcgtp.hibernate;
+/*package com.tcgtp.hibernate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -94,3 +94,4 @@ public class OrderItem {
 	
 	
 }
+*/
