@@ -30,11 +30,10 @@
 			<h1>TCG Trading Post</h1>
 		</div>
 		<div id="nav_bar">
-			<button type="button" id="login_btn" class="btn btn-default btn-sm">Login</button>
+			<a  class="btn btn-default btn-sm" href="/Login.html"  th:href="@{/login}">Login</a>
 			<button type="button" id="user_home_btn"
 				class="btn btn-default btn-sm" style="display: none;"></button>
-			<button type="button" id="card_search_btn"
-				class="btn btn-default btn-sm">Card Search</button>
+			<a class="btn btn-default btn-sm" href="/CardSearch.html"  th:href="@{/cardsearch}">Card Search</a>
 			<button type="button" id="cart_btn" class="btn btn-default btn-sm" style="display: none;">Cart</button>
 			<button type="button" id="logout_btn" class="btn btn-danger btn-sm" style="display: none;">Logout</button>
 		</div>

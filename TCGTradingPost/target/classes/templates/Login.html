@@ -1,28 +1,28 @@
 <!DOCTYPE html>
-<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml" 
-    xmlns:th="http://www.thymeleaf.org" 
-    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<html lang="en-US" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 <head>
-<meta charset="ISO-8859-1"/>
-<meta name="viewport" content="width=device-width"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta charset="ISO-8859-1" />
+<meta name="viewport" content="width=device-width" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <title>TCG Trading Post - Card Search</title>
 <link
 	href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
 	th:href="@{/webjars/bootstrap/3.3.4/css/bootstrap.min.css}"
-	rel="stylesheet" media="screen"/>
+	rel="stylesheet" media="screen" />
 
 <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
 	th:src="@{/webjars/jquery/2.1.4/jquery.min.js}" type="text/javascript"></script>
 
 <link rel="stylesheet" href="./css/fonts/skeksis_font.css"
-	th:href="@{css/fonts/skeksis_font.css}" type="text/css"/>
+	th:href="@{css/fonts/skeksis_font.css}" type="text/css" />
 
 <link rel="stylesheet" href="./css/base_page_style.css"
-	th:href="@{css/base_page_style.css}" type="text/css"/>
-<link rel="stylesheet" href="./css/loginpage.css" 
-			th:href="@{css/loginpage.css}" type="text/css"/>
+	th:href="@{css/base_page_style.css}" type="text/css" />
+<link rel="stylesheet" href="./css/loginpage.css"
+	th:href="@{css/loginpage.css}" type="text/css" />
 </head>
 
 
@@ -33,32 +33,41 @@
 			<h1>TCG Trading Post</h1>
 		</div>
 		<div id="nav_bar">
-			<button type="button" id="home_btn" class="btn btn-default btn-sm">Home</button>
+			<a class="btn btn-default btn-sm" href="/home.html" th:href="@{/}">Home</a>
 		</div>
 	</header>
 	<div id="page_body">
 		<div id="background">
 			<img id="background_img" src="../static/images/trading_post.jpg"
-				th:src="@{images/trading_post.jpg}"
-				alt="Trading Post image" width="876px" height="1200px" />
+				th:src="@{images/trading_post.jpg}" alt="Trading Post image"
+				width="876px" height="1200px" />
 		</div>
+
+		
 		<div id="login_form_container">
-			<form id="login_form" action="">
+		
+			<form id="login_form" th:action="@{/login}" method="post">
+			
 				<div class="form-group" id="group_username">
-					<label for="input_username">Username</label> <input type="text"
-						class="form-control" id="input_username" />
+					<label for="input_username">Username <input type="text" class="form-control" name = "username" id="input_username" /></label> 
+					
 				</div>
 				<div class="form-group" id="group_password">
-					<label for="input_password">Password</label> <input type="text"
-						class="form-control" id="input_password" />
+					<label for="input_password">Password <input type="text" class="form-control" name = "password" id="input_password" /></label>
+					 
 				</div>
 				<div id="login_buttons">
-					<button type="button" class="btn btn-submit" id="login_btn">Login</button>
-					<button type="button" class="btn btn-submit" id="sign_up_btn">Sign
+					<input type="submit" class="btn btn-submit" id="login_btn" value = "Login"/>
+					<button type="button" class="btn btn-submit" id="sign_up_btn" th:href="@{/}">Sign
 						Up</button>
 				</div>
 			</form>
-			<div id="error_display"></div>
+			<div id="error_display" th:if="${param.error}">
+			<label style="color: red">Invalid username and password.</label>
+			</div>
+			<div th:if="${param.logout}">
+			<label> You have been logged out. </label>
+			</div>
 		</div>
 	</div>
 </body>
