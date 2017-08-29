@@ -1,5 +1,9 @@
 package com.tcgtp.repositories;
 
-public class OrderRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.tcgtp.domain.Order;
+
+public interface OrderRepository extends CrudRepository<Order, Long>{
 
 }

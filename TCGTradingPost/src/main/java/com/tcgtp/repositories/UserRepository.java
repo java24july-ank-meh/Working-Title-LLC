@@ -1,5 +1,9 @@
 package com.tcgtp.repositories;
 
-public class UserRepository {
+import org.springframework.data.repository.CrudRepository;
 
+import com.tcgtp.domain.User;
+
+public interface UserRepository extends CrudRepository<User, Long> {
+	public User findByUsername(String username);
 }

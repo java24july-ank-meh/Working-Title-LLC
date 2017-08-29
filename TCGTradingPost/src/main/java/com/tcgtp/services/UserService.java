@@ -1,12 +1,18 @@
 package com.tcgtp.services;
 
+import java.util.List;
+
 import com.tcgtp.domain.User;
 
 public interface UserService {
 	
-	public User getUserById(Long userID);
+	public List<User> listAll();
 	
-	public User getUserByUsername(String username);
+	public User getById(Long userID);
+ 
+	public User saveOrUpdate(User domainObject);
+ 
+    public void delete(Long userID);
 	
-	public User saveUser(User user);
+	public User findByUsername(String username);
 }

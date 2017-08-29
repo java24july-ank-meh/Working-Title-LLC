@@ -10,7 +10,7 @@ import javax.persistence.Table;
 public class OrderStatus {
 	
 	
-	private Integer statusID;
+	private Long statusID;
 	
 	private String statusName;
 	
@@ -18,7 +18,7 @@ public class OrderStatus {
 	public OrderStatus() {
 		super();
 	}
-	public OrderStatus(Integer statusID, String statusName) {
+	public OrderStatus(Long statusID, String statusName) {
 		super();
 		this.statusID = statusID;
 		this.statusName = statusName;
@@ -28,10 +28,10 @@ public class OrderStatus {
 	
 	@Id
 	@Column(name="statusID")
-	public Integer getStatusID() {
+	public Long getStatusID() {
 		return statusID;
 	}
-	public void setStatusID(Integer statusID) {
+	public void setStatusID(Long statusID) {
 		this.statusID = statusID;
 	}
 	

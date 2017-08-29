@@ -1,5 +1,9 @@
 package com.tcgtp.repositories;
 
-public class InventoryRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import com.tcgtp.domain.Inventory;
+
+public interface InventoryRepository extends CrudRepository<Inventory, Long> {
 
 }
