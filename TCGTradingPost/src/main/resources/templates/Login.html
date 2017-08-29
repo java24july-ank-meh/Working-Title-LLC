@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1"/>
+		<meta author="Working Title, LLC"/>
+		<meta name="viewport" content="width=device-width"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>TCG Trading Post - Card Search</title>
+		<link href="https://fonts.googleapis.com/css?family=Acme"
+			th:href="@{https://fonts.googleapis.com/css?family=Acme}" rel="stylesheet"/>
+		<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+	    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+	            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+		<link rel="stylesheet" href="./css/fonts/skeksis_font.css" 
+			th:src="@{css/fonts/skeksis_font.css}" type="text/css" charset="utf-8"/>
+		<link rel="stylesheet" href="./css/base_page_style.css" 
+			th:src="@{css/base_page_style.css}" type="text/css" charset="utf-8"/>
+		<link rel="stylesheet" href="./css/loginpage.css" 
+			th:src="@{css/loginpage.css}" type="text/css" charset="utf-8"/>
+	</head>
+	
+	
+	
+	<body>
+		<header class="page-header">
+			<div id="header_banner">
+				<h1>TCG Trading Post</h1>
+			</div>
+			<div id="nav_bar">
+				<button type="button" id="home_btn" class="btn btn-default btn-sm">Home</button>
+			</div>
+		</header>
+		<div id="page_body">
+			<div id="background">
+				<img id="background_img" src="../static/images/trading_post.jpg"
+					alt="Trading Post image" width="876px" height="1200px"
+					th:src="@{images/trading_post.jpg}"/>
+			</div>
+			<div id="login_form_container">
+				<form id="login_form">
+					<div class="form-group" id="group_username">
+						<label for="input_username">Username</label>
+						<input type="text" class="form-control" id="input_username"/>
+					</div>
+					<div class="form-group" id="group_password">
+						<label for="input_password">Password</label>
+						<input type="text" class="form-control" id="input_password"/>
+					</div>
+					<div id="login_buttons">
+						<button type="button" class="btn btn-submit" id="login_btn">Login</button>
+						<button type="button" class="btn btn-submit" id="sign_up_btn">Sign Up</button>
+					</div>
+				</form>
+				<div id="error_display">
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
