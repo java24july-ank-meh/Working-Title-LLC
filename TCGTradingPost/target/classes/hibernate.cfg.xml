@@ -20,9 +20,7 @@
 
 <!--	this is the old information for localhost connections. For localhost testing, uncomment this blerb.	
 		<property name="hibernate.connection.url">jdbc:oracle:thin:@localhost:1521:xe</property>
-
 		<property name="hibernate.connection.username">SYSTEM</property>
-
 		<property name="hibernate.connection.password">p4ssw0rd</property> -->
 
 		<property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
