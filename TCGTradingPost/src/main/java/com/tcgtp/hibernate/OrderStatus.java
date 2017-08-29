@@ -27,7 +27,7 @@ public class OrderStatus {
 	// Getters and Setters
 	
 	@Id
-	@Column(name="statusID", unique=true, nullable=false)
+	@Column(name="statusID")
 	public int getStatusID() {
 		return statusID;
 	}
