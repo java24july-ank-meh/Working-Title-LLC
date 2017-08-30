@@ -4,6 +4,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import com.tcgtp.domain.Inventory;
 
 @Controller
 public class CardSearchController {
@@ -14,7 +17,7 @@ public class CardSearchController {
 	}
 	
 	@RequestMapping(value="/cardSearcher", method=RequestMethod.POST)
-	public void getCardIDs() {
-		
+	public @ResponseBody Inventory[] getCards() {
+		return null;
 	}
 }
