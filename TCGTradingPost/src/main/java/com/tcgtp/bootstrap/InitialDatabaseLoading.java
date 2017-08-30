@@ -1,5 +1,6 @@
 package com.tcgtp.bootstrap;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
+import com.tcgtp.domain.Inventory;
 import com.tcgtp.domain.Role;
 import com.tcgtp.domain.User;
 import com.tcgtp.repositories.InventoryRepository;
@@ -43,8 +45,20 @@ public class InitialDatabaseLoading implements ApplicationListener<ContextRefres
 		createUsers();
 		
 		assignRoles();
+		
+		addInventory();
 	}
 
+
+	private void addInventory() {
+		Inventory item1 = new Inventory();
+		item1.setCardName("Counterspell");
+		item1.setGame("Magic the Gathering");
+		item1.setPrice(new BigDecimal(2.50));
+		item1.setStock(10);
+		item1.setItemID(new Long(413585));
+		
+	}
 
 	private void createUsers() {
 		User user1 = new User();
