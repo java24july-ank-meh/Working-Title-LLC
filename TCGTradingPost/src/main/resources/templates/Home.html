@@ -27,13 +27,12 @@
 				<h1>TCG Trading Post</h1>
 			</div>
 			<div id="nav_bar">
-				<a type="button" id="login_btn" class="btn btn-default btn-sm" th:href="@{/userHome}">Login</a>
-				<a type="button" id="login_btn" class="btn btn-default btn-sm" th:href="@{/userHome}" sec:authorize="isAuthenticated()"></a>
+				<a type="button" id="login_btn" class="btn btn-default btn-sm" th:href="@{/userHome}" sec:authorize="isAnonymous()">Login</a>
+				<a type="button" id="login_btn" class="btn btn-default btn-sm" th:href="@{/userHome}" sec:authorize="isAuthenticated()"><sec:authentication property="principal.username" /></a>
 				<a type="button" id="user_home_btn"
 					class="btn btn-default btn-sm" style="display: none;"></a>
 				<a type="button" id="card_search_btn"
 					class="btn btn-default btn-sm" href="CardSearch.html" th:href="@{/cardSearch}">Card Search</a>
-				<a type="button" id="cart_btn" class="btn btn-default btn-sm" style="display: none;">Cart</a>
 				<a type="button" id="logout_btn" class="btn btn-danger btn-sm" style="display: none;">Logout</a>
 			</div>
 		</header>

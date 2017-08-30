@@ -15,21 +15,22 @@
           rel="stylesheet" media="screen" />
 	    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
 	            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
-		<link rel="stylesheet" href="../static/css/fonts/skeksis_font.css" 
+		<link rel="stylesheet" href="./css/fonts/skeksis_font.css" 
 			th:src="@{css/fonts/skeksis_font.css}" type="text/css" charset="utf-8"/>
-		<link rel="stylesheet" href="../static/css/base_page_style.css" 
+		<link rel="stylesheet" href="./css/base_page_style.css" 
 			th:src="@{css/base_page_style.css}" type="text/css" charset="utf-8"/>
-		<link rel="stylesheet" href="../static./css/userHome.css" 
+		<link rel="stylesheet" href="./css/userHome.css" 
 			th:src="@{css/userHome.css}" type="text/css" charset="utf-8"/>
 		
-		<script src="https://code.angularjs.org/1.2.13/angular.min.js"
-			th:src="@{https://code.angularjs.org/1.2.13/angular.min.js}"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.js"
-			th:src="@{https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.js}"></script>
-		<script src="../static/js/userHome.js"
-			th:src="@{js/userHome.js}"></script>
-		
 	</head>
+	
+	<script src="https://code.angularjs.org/1.2.13/angular.min.js"
+			th:src="@{https://code.angularjs.org/1.2.13/angular.min.js}"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.js"
+		th:src="@{https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.js}"></script>
+	<script src="./js/userHome.js"
+		th:src="@{js/userHome.js}"></script>
+	
 	
 	<body ng-app="routerApp">
 		<header class="page-header">
@@ -58,5 +59,6 @@
 			</div>
 		</div>
 	</body>
+	
 	
 </html>
