@@ -15,32 +15,32 @@ import com.tcgtp.repositories.UserRepository;
 @Profile("springdatajpa")
 public class RoleServiceImpl implements RoleService {
 	
-	private RoleRepository roleRepository;
+	private RoleRepository repository;
 	@Autowired
     public void setUserRepository(RoleRepository roleRepository) {
-        this.roleRepository = roleRepository;
+        this.repository = roleRepository;
     }
 
 	@Override
 	public List<Role> listAll() {
 		List<Role> roleList = new ArrayList<>();
-		roleRepository.findAll().forEach(roleList::add);
+		repository.findAll().forEach(roleList::add);
 		return roleList;
 	}
 
 	@Override
 	public Role getById(Long roleID) {
-		return roleRepository.findOne(roleID);
+		return repository.findOne(roleID);
 	}
 
 	@Override
 	public Role saveOrUpdate(Role role) {
-		return roleRepository.save(role);
+		return repository.save(role);
 	}
 
 	@Override
 	public void delete(Long id) {
-		roleRepository.delete(id);
+		repository.delete(id);
 	}
 
 }

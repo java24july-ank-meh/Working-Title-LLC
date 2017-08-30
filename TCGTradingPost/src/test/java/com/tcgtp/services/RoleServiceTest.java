@@ -12,9 +12,9 @@ import org.junit.Test;
 import com.tcgtp.domain.Role;
 
 public class RoleServiceTest {
-	RoleServiceImpl service;
-	Long testID;
-	String testName;
+	private RoleServiceImpl service;
+	private Long testID;
+	private String testName;
 
 	@Before
 	public void setUp() throws Exception {

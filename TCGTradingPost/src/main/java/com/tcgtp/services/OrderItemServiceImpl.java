@@ -3,11 +3,13 @@ package com.tcgtp.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tcgtp.domain.OrderItem;
 import com.tcgtp.repositories.OrderItemRepository;
 
+@Service
 public class OrderItemServiceImpl implements OrderItemService {
 
 	private OrderItemRepository repository;

@@ -7,35 +7,40 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tcgtp.domain.OrderStatus;
+import com.tcgtp.domain.User;
 import com.tcgtp.repositories.OrderStatusRepository;
 
 @Service
 public class OrderStatusServiceImpl implements OrderStatusService {
 
-	private OrderStatusRepository orderStatusRepository;
+	private OrderStatusRepository repository;
 	
 	@Override
 	public List<OrderStatus> listAll() {
 		List<OrderStatus> orderList = new ArrayList<>();
-		orderStatusRepository.findAll().forEach(orderList::add);
+		repository.findAll().forEach(orderList::add);
 		return orderList;
 	}
 
 	@Override
 	public OrderStatus getById(Long roleID) {
-		return orderStatusRepository.findOne(roleID);
+		return repository.findOne(roleID);
 	}
 
 	@Override
-	public OrderStatus saveOrUpdate(OrderStatus role) {
-		return orderStatusRepository.save(role);
+	public OrderStatus saveOrUpdate(OrderStatus status) {
+		return repository.save(status);
+	}
+	
+	@Override
+	public OrderStatus findByStatusName(String statusName) {
+		return repository.findByStatusName(statusName);
 	}
 
 	@Override
 	@Transactional
 	public void delete(Long id) {
-		orderStatusRepository.delete(id);
-
+		repository.delete(id);
 	}
 
 }

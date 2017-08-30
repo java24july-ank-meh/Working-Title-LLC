@@ -1,3 +1,4 @@
+package com.tcgtp.services;
 import static org.junit.Assert.*;
 
 import org.junit.After;
@@ -10,9 +11,9 @@ import com.tcgtp.services.UserDetailsServiceImpl;
 import com.tcgtp.services.UserServiceImpl;
 
 public class UserDetailsServiceTest {
-	Long testID;
-	String testUsername;
-	String testPassword;
+	private Long testID;
+	private String testUsername;
+	private String testPassword;
 	
 	@Before
 	public void setUp() throws Exception {

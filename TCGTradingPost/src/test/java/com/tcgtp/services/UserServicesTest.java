@@ -12,9 +12,9 @@ import org.junit.Test;
 import com.tcgtp.domain.User;
 
 public class UserServicesTest {
-	UserServiceImpl service;
-	Long testID;
-	String testUsername;
+	private UserServiceImpl service;
+	private Long testID;
+	private String testUsername;
 
 	@Before
 	public void setUp() throws Exception {

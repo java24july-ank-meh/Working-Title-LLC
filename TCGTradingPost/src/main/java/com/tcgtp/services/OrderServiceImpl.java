@@ -12,29 +12,29 @@ import com.tcgtp.repositories.OrderRepository;
 @Service
 public class OrderServiceImpl implements OrderService {
 
-	private OrderRepository orderRepository;
+	private OrderRepository repository;
 	
 	@Override
 	public List<Order> listAll() {
 		List<Order> orderList = new ArrayList<>();
-		orderRepository.findAll().forEach(orderList::add);
+		repository.findAll().forEach(orderList::add);
 		return orderList;
 	}
 
 	@Override
 	public Order getById(Long id) {
-		return orderRepository.findOne(id);
+		return repository.findOne(id);
 	}
 
 	@Override
 	public Order saveOrUpdate(Order order) {
-		return orderRepository.save(order);
+		return repository.save(order);
 	}
 
 	@Override
 	@Transactional
 	public void delete(Long id) {
-		orderRepository.delete(id);
+		repository.delete(id);
 
 	}
 
