@@ -18,8 +18,8 @@
 			th:src="@{css/fonts/skeksis_font.css}" type="text/css" charset="utf-8"/>
 		<link rel="stylesheet" href="./css/base_page_style.css" 
 			th:src="@{css/base_page_style.css}" type="text/css" charset="utf-8"/>
-		<link rel="stylesheet" href="../static/css/cardSearch.css" 
-			th:src="@{css/cardSearch.css}" type="text/css"/>
+		<link rel="stylesheet" href="./css/cardSearch.css" 
+			th:src="@{css/cardSearch.css}" type="text/css" charset="utf-8"/>
 	</head>
 	
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"
@@ -33,7 +33,7 @@
 				<h1>Card Search</h1>
 			</div>
 			<div id="nav_bar">
-				<a type="button" id="home_btn" class="btn btn-default btn-sm" href="Home.html">Home</a>
+				<a type="button" id="home_btn" class="btn btn-default btn-sm" href="Home.html" th:href="@{/}">Home</a>
 			</div>
 		</header>
 		
@@ -78,7 +78,7 @@
 			<!-- Use Angular ng-repeat to display results -->
 			<div id="search_result_container">
 				<div class="search_result_table" ng-repeat="search_result in apiSearchResults">
-					<img src={{search_result.imageUrl}} width="223px" height="310px"></img>
+					<img src="{{search_result.imageUrl}}" width="223px" height="310px"></img>
 					<div class="search_result_table_desc">
 						<h1>{{search_result.name}}</h1>
 						<p>{{search_result.setName}}</p>
