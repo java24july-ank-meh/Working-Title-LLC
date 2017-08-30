@@ -1,0 +1,13 @@
+#angular_container {
+	width: 100%;
+	margin: auto;
+	text-align: center;
+}
+#angular_frame {
+	display: inline-block;
+	width: 600px;
+	background-image: url('../images/parchment.jpg');
+	background-size: cover;
+	margin-top: 240px;
+	padding: 20px 15px 20px 15px;
+}

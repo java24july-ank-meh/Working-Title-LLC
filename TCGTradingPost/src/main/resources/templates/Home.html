@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en-US"
+	xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1"/>
+		<meta author="Working Title, LLC"/>
+		<meta name="viewport" content="width=device-width"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>TCG Trading Post</title>
+		<link href="https://fonts.googleapis.com/css?family=Acme"
+			th:href="@{https://fonts.googleapis.com/css?family=Acme}" rel="stylesheet"/>
+		<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+	    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+	            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+		<link rel="stylesheet" href="./css/fonts/skeksis_font.css" 
+			th:src="@{css/fonts/skeksis_font.css}" type="text/css" charset="utf-8"/>
+		<link rel="stylesheet" href="./css/base_page_style.css" 
+			th:src="@{css/base_page_style.css}" type="text/css" charset="utf-8"/>
+	</head>
+	
+	<body>
+		<header class="page-header">
+			<div id="header_banner">
+				<h1>TCG Trading Post</h1>
+			</div>
+			<div id="nav_bar">
+				<a type="button" id="login_btn" class="btn btn-default btn-sm" th:href="@{/userHome}" sec:authorize="isAnonymous()">Login</a>
+				<a type="button" id="login_btn" class="btn btn-default btn-sm" th:href="@{/userHome}" sec:authorize="isAuthenticated()"><span sec:authentication="name"></span></a>
+				<a type="button" id="user_home_btn"
+					class="btn btn-default btn-sm" style="display: none;"></a>
+				<a type="button" id="card_search_btn"
+					class="btn btn-default btn-sm" href="CardSearch.html" th:href="@{/cardSearch}">Card Search</a>
+				<a type="button" id="logout_btn" class="btn btn-danger btn-sm" style="display: none;">Logout</a>
+			</div>
+		</header>
+		<div id="page_body">
+			<div id="background">
+				<img id="background_img" src="../static/images/trading_post.jpg"
+					alt="Trading Post image" width="876px" height="1200px"
+					th:src="@{images/trading_post.jpg}"/>
+			</div>
+		</div>
+		<footer>Copyright WorkingTitle, LLC &copy; 2017</footer>
+	</body>
+</html>
