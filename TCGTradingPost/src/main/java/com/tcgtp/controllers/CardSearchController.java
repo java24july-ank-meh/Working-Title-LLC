@@ -16,8 +16,5 @@ public class CardSearchController {
 		return "CardSearch";
 	}
 	
-	@RequestMapping(value="/cardSearcher", method=RequestMethod.POST)
-	public @ResponseBody Inventory[] getCards() {
-		return null;
-	}
+	
 }

@@ -28,7 +28,7 @@
 			</div>
 			<div id="nav_bar">
 				<a type="button" id="login_btn" class="btn btn-default btn-sm" th:href="@{/userHome}">Login</a>
-				<a type="button" id="login_btn" class="btn btn-default btn-sm" th:href="@{/userHome}" sec:authorize="isAuthenticated()"><span sec:authentication="username"></span></a>
+				<a type="button" id="login_btn" class="btn btn-default btn-sm" th:href="@{/userHome}" sec:authorize="isAuthenticated()"></a>
 				<a type="button" id="user_home_btn"
 					class="btn btn-default btn-sm" style="display: none;"></a>
 				<a type="button" id="card_search_btn"
