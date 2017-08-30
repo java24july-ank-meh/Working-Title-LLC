@@ -2,7 +2,10 @@ package com.tcgtp.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -27,6 +30,8 @@ public class OrderStatus {
 	// Getters and Setters
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDERSTAT_ID")
+	@SequenceGenerator(name="SQ_ORDERSTAT_ID", sequenceName="SQ_ORDERSTAT_ID")
 	@Column(name="statusID")
 	public Long getStatusID() {
 		return statusID;

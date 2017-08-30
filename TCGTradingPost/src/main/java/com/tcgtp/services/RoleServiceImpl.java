@@ -12,7 +12,6 @@ import com.tcgtp.repositories.RoleRepository;
 import com.tcgtp.repositories.UserRepository;
 
 @Service
-@Profile("springdatajpa")
 public class RoleServiceImpl implements RoleService {
 	
 	private RoleRepository roleRepository;

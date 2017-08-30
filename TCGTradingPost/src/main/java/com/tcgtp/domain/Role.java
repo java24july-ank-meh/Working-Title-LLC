@@ -12,9 +12,11 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
+@SequenceGenerator(name="ROLE_ID_GEN")
 @Table(name="ROLES")
 public class Role {
 
@@ -48,7 +50,8 @@ public class Role {
 	}
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ROLE_ID")
+	@SequenceGenerator(name="SQ_ROLE_ID", sequenceName="SQ_ROLE_ID")
 	@Column(name="roleID")
 	public Long getId() {
 		return roleID;

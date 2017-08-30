@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<html lang="en-US"
+	xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="ISO-8859-1"/>
 		<meta author="Working Title, LLC"/>
@@ -36,8 +37,8 @@
 				<h1>TCG Trading Post</h1>
 			</div>
 			<div id="nav_bar">
-				<a type="button" id="home_btn" class="btn btn-default btn-sm" href="Home.html">Home</a>
-				<a type="button" id="card_search_btn" class="btn btn-default btn-sm" href="CardSearch.html">Card Search</a>
+				<a type="button" id="home_btn" class="btn btn-default btn-sm" href="Home.html" th:href="@{/}">Home</a>
+				<a type="button" id="card_search_btn" class="btn btn-default btn-sm" href="CardSearch.html" th:href="@{/cardSearch}">Card Search</a>
 				<a type="button" id="cart_btn" class="btn btn-default btn-sm" ui-sref="cart">Cart</a>
 				<a type="button" class="btn btn-default btn-sm" ui-sref="accountInfo">AccountInfo</a>
 				<a type="button" class="btn btn-default btn-sm" ui-sref="orderHistory">Order History</a>

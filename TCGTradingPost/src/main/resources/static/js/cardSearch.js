@@ -1,5 +1,6 @@
 let searchResultsArr = [];
 
+let xhrResultsArr = [];
 
 let searchApp = angular.module("searchApp", []);
 searchApp.controller("searchCtrl", function($scope) {
@@ -7,7 +8,30 @@ searchApp.controller("searchCtrl", function($scope) {
 	$scope.buyBtnFunc = function() {
 		
 	}
+	$scope.searchResultsFunc = function(xhrResponse) {
+		console.log("searchResultsFunc");
+		
+		
+	}
 	$scope.onSubmitFunc = function() {
+		
+		console.log("onSubmit");
+		
+		let xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
+			console.log("readystate: "+xhr.readyState+" status: "+xhr.status)
+			if(xhr.readyState === 4 && xhr.status === 200) {
+				
+				$scope.searchResultsFunc(xhr.);
+				
+			}
+		}
+		xhr.open("POST", "/cardSearcher", true);
+		xhr.send();
+		
+		
+		
+		/*
 		console.log("onSubmit");
 		let urlStr = "";
 		
@@ -69,6 +93,6 @@ searchApp.controller("searchCtrl", function($scope) {
 		}
 		xhr.open("GET", urlStr, true);
 		xhr.send();
-		
+		*/
 	}
 });

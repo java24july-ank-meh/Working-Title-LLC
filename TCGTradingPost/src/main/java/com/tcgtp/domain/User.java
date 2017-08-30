@@ -17,12 +17,6 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 
 @Entity
-@SequenceGenerator(
-		name="SQ_USER_ID_GEN",
-		sequenceName="SQ_USER_ID_GEN",
-		initialValue=2000000,
-		allocationSize=1
-		)
 @Table(name="TCGTPUSERS")
 public class User {
 
@@ -86,7 +80,8 @@ public class User {
 	}
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="SQ_USER_ID_GEN")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_USER_ID")
+	@SequenceGenerator(name="SQ_USER_ID", sequenceName="SQ_USER_ID")
 	@Column(name="userID")
 	public Long getUserID() {
 		return userID;

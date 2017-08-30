@@ -11,11 +11,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@SequenceGenerator(
-		name="SQ_INVENTORY_ID_GEN",
-		sequenceName="SQ_INVENTORY_ID_GEN",
-		initialValue=1000000, allocationSize=1
-		)
 @Table(name="INVENTORY")
 public class Inventory {
 
@@ -46,7 +41,8 @@ public class Inventory {
 	//Getters and Setters
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="SQ_INVENTORY_ID_GEN")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_INVENTORY_ID")
+	@SequenceGenerator(name="SQ_INVENTORY_ID", sequenceName="SQ_INVENTORY_ID")
 	@Column(name="itemID")
 	public Long getItemID() {
 		return itemID;

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+<html lang="en-US"
+	xmlns:th="http://www.thymeleaf.org">
 	<head>
 		<meta charset="ISO-8859-1"/>
 		<meta author="Working Title, LLC"/>
 		<meta name="viewport" content="width=device-width"/>
 		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-		<title>TCG Trading Post - Card Search</title>
+		<title>TCG Trading Post - Login</title>
 		<link href="https://fonts.googleapis.com/css?family=Acme"
 			th:href="@{https://fonts.googleapis.com/css?family=Acme}" rel="stylesheet"/>
 		<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
@@ -40,21 +41,25 @@
 					th:src="@{images/trading_post.jpg}"/>
 			</div>
 			<div id="login_form_container">
-				<form id="login_form">
+				<form id="login_form" th:action="@{/login}" method="post">
 					<div class="form-group" id="group_username">
 						<label for="input_username">Username</label>
-						<input type="text" class="form-control" id="input_username"/>
+						<input type="text" class="form-control" name="username" id="input_username"/>
 					</div>
 					<div class="form-group" id="group_password">
 						<label for="input_password">Password</label>
-						<input type="text" class="form-control" id="input_password"/>
+						<input type="password" class="form-control" name="password" id="input_password"/>
 					</div>
 					<div id="login_buttons">
-						<button type="button" class="btn btn-submit" id="login_btn">Login</button>
-						<button type="button" class="btn btn-submit" id="sign_up_btn">Sign Up</button>
+						<input type="submit" class="btn btn-submit" id="login_btn" value = "Login"/>
+						<!-- <button type="button" class="btn btn-submit" id="sign_up_btn">Sign Up</button> -->
 					</div>
 				</form>
-				<div id="error_display">
+				<div id="error_display" th:if="${param.error}">
+					<label style="color: red">Invalid username and password.</label>
+				</div>
+				<div th:if="${param.logout}">
+					<label> You have been logged out. </label>
 				</div>
 			</div>
 		</div>

@@ -11,12 +11,6 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@SequenceGenerator(
-		name="SQ_ORDERITEM_ID_GEN",
-		sequenceName="SQ_ORDERITEM_ID_GEN",
-		initialValue=4000000,
-		allocationSize=1
-		)
 @Table(name="ORDERITEM")
 public class OrderItem {
 
@@ -49,7 +43,8 @@ public class OrderItem {
 	// Getters and Setters
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO, generator="SQ_ORDERITEM_ID_GEN")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDERITEM_ID")
+	@SequenceGenerator(name="SQ_ORDERITEM_ID", sequenceName="SQ_ORDERITEM_ID")
 	@Column(name="orderItemID")
 	public Long getOrderItemID() {
 		return orderItemID;
