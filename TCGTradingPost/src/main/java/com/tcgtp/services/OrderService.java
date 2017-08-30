@@ -5,11 +5,12 @@ import java.util.List;
 import com.tcgtp.domain.Order;
 
 public interface OrderService {
-	List<Order> listAll();
+	
+	public List<Order> listAll();
 	 
-	Order getById(Long id);
+	public Order getById(Long id);
  
-	Order saveOrUpdate(Order order);
+	public Order saveOrUpdate(Order order);
  
-    void delete(Integer id);
+    public void delete(Long id);
 }

@@ -4,6 +4,6 @@ import org.springframework.data.repository.CrudRepository;
 
 import com.tcgtp.domain.OrderStatus;
 
-public interface OrderStatusRepository extends CrudRepository<OrderStatus, Integer>{
+public interface OrderStatusRepository extends CrudRepository<OrderStatus, Long>{
 
 }

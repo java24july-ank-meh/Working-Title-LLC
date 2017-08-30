@@ -13,12 +13,12 @@ import com.tcgtp.repositories.UserRepository;
 @Service
 public class UserServiceImpl implements UserService{
 
-	private UserRepository userRepository;
+	private UserRepository repository;
 	private EncryptionService encryptionService;
 	 
     @Autowired
     public void setRoleRepository(UserRepository userRepository) {
-        this.userRepository = userRepository;
+        this.repository = userRepository;
     }
     
     @Autowired
@@ -29,18 +29,18 @@ public class UserServiceImpl implements UserService{
 	@Override
 	public List<User> listAll() {
 		List<User> userList = new ArrayList<>();
-		userRepository.findAll().forEach(userList::add);
+		repository.findAll().forEach(userList::add);
 		return userList;
 	}
 
 	@Override
 	public User getById(Long userID) {
-		return userRepository.findOne(userID);
+		return repository.findOne(userID);
 	}
 
 	@Override
 	public User findByUsername(String username) {
-		return userRepository.findByUsername(username);
+		return repository.findByUsername(username);
 	}
 
 	@Override
@@ -48,13 +48,13 @@ public class UserServiceImpl implements UserService{
 		if(user.getPassword() != null){
 			user.setEncryptedPassword(encryptionService.encryptString(user.getPassword()));
         }
-        return userRepository.save(user);
+        return repository.save(user);
     }
 
 	@Override
 	@Transactional
 	public void delete(Long userID) {
-		userRepository.delete(userID);
+		repository.delete(userID);
 		
 	}
 
