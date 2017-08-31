@@ -10,7 +10,9 @@ public interface OrderStatusService {
 	
 	public OrderStatus getById(Long roleID);
 	
-	public OrderStatus saveOrUpdate(OrderStatus role);
+	public OrderStatus saveOrUpdate(OrderStatus status);
 
 	public void delete(Long id);
+
+	public OrderStatus findByStatusName(String statusName);
 }

@@ -19,7 +19,7 @@ import com.tcgtp.services.InventoryService;
 import com.tcgtp.services.RoleService;
 import com.tcgtp.services.UserService;
 
-@Component
+//@Component
 public class InitialDatabaseLoading implements ApplicationListener<ContextRefreshedEvent>{
 
 	
