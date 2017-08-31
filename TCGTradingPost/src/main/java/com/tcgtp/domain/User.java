@@ -21,6 +21,10 @@ import javax.persistence.Transient;
 public class User {
 
 	private Long userID;
+<<<<<<< HEAD
+=======
+	
+>>>>>>> master
 	private String username;
 	@Transient
 	private String password;
@@ -57,8 +61,13 @@ public class User {
 	
 	
 	// Getters and Setters
+<<<<<<< HEAD
 	public void setUserID(Long customerID) {
 		this.userID = customerID;
+=======
+	public void setUserID(Long userID) {
+		this.userID = userID;
+>>>>>>> master
 	}
 	public void setUsername(String username) {
 		this.username = username;

@@ -55,6 +55,10 @@
 				<div class="form-group" id="group_game_name">
 					<label for="input_game_name">Game</label>
 					<select class="form-control" name="input_game_name" id="input_game_name">
+<<<<<<< HEAD
+=======
+						<option></option>
+>>>>>>> master
 						<option>Magic the Gathering</option>
 						<option>Pokemon</option>
 						<option>Star Wars: Destiny</option>
@@ -67,9 +71,15 @@
 				<div class="form-group" id="group_price_range">
 					<label for="input_price_range_div">Price Range (USD)</label>
 					<div id="input_price_range_div">
+<<<<<<< HEAD
 						<input type="number" class="form-control" id="input_price_range_min" placeholder="0.00" step="0.01" min="0.00"/>
 						<span>-</span>
 						<input type="number" class="form-control" id="input_price_range_max" placeholder="999.99" step="0.01" min="0.00"/>
+=======
+						<input type="number" class="form-control" name="input_price_range_min" id="input_price_range_min" placeholder="0.00" step="0.01" min="0.00"/>
+						<span>-</span>
+						<input type="number" class="form-control" name="input_price_range_max" id="input_price_range_max" placeholder="999.99" step="0.01" min="0.00"/>
+>>>>>>> master
 					</div>
 				</div>
 				<button type="button" class="btn btn-primary" id="search_btn" ng-click="onSubmitFunc()" style="width: 240px;">Search</button>
@@ -78,6 +88,7 @@
 			<!-- Use Angular ng-repeat to display results -->
 			<div id="search_result_container">
 				<div class="search_result_table" ng-repeat="search_result in apiSearchResults">
+<<<<<<< HEAD
 					<img src="{{search_result.imageUrl}}" width="223px" height="310px"></img>
 					<div class="search_result_table_desc">
 						<h1>{{search_result.name}}</h1>
@@ -86,6 +97,16 @@
 						<br/><br/>
 						<div class="buy_div">
 							<p>Price: $0.50</p>
+=======
+					<img src="{{search_result.imgUrl}}" width="223px" height="310px"></img>
+					<div class="search_result_table_desc">
+						<h1>{{search_result.cardName}}</h1>
+						<p>{{search_result.setName}}</p>
+						<br/><br/>
+						<div class="buy_div">
+							<p>Stock: {{search_result.stock}}</p>
+							<p>Price: $ {{search_result.price}}</p>
+>>>>>>> master
 							<button class="btn btn-default btn-xs" onclick="buyBtnFunc()">Add to Cart</button>
 						</div>
 					</div>

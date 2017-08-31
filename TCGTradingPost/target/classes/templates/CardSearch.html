@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en-US" xmlns:th="http://www.thymeleaf.org">
+	<head>
+		<meta charset="ISO-8859-1"/>
+		<meta author="Working Title, LLC"/>
+		<meta name="viewport" content="width=device-width"/>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+		<title>TCG Trading Post - Card Search</title>
+		<link href="https://fonts.googleapis.com/css?family=Acme"
+			th:href="@{https://fonts.googleapis.com/css?family=Acme}" rel="stylesheet"/>
+		<link href="http://cdn.jsdelivr.net/webjars/bootstrap/3.3.4/css/bootstrap.min.css"
+          th:href="@{/webjars/bootstrap/3.3.7/css/bootstrap.min.css}"
+          rel="stylesheet" media="screen" />
+	    <script src="http://cdn.jsdelivr.net/webjars/jquery/2.1.4/jquery.min.js"
+	            th:src="@{/webjars/jquery/2.1.4/jquery.min.js}"></script>
+		<link rel="stylesheet" href="./css/fonts/skeksis_font.css" 
+			th:src="@{css/fonts/skeksis_font.css}" type="text/css" charset="utf-8"/>
+		<link rel="stylesheet" href="./css/base_page_style.css" 
+			th:src="@{css/base_page_style.css}" type="text/css" charset="utf-8"/>
+		<link rel="stylesheet" href="./css/cardSearch.css" 
+			th:src="@{css/cardSearch.css}" type="text/css" charset="utf-8"/>
+	</head>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"
+		th:src="@{https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js}"></script>
+	<script src="../static/js/cardSearch.js"
+		th:src="@{js/cardSearch.js}"></script>
+	
+	<body ng-app="searchApp">
+		<header class="page-header">
+			<div id="header_banner">
+				<h1>Card Search</h1>
+			</div>
+			<div id="nav_bar">
+				<a type="button" id="home_btn" class="btn btn-default btn-sm" href="Home.html" th:href="@{/}">Home</a>
+			</div>
+		</header>
+		
+		<!-- Page background -->
+		<div id="page_body">
+			<div id="background">
+				<img id="background_img" src="../static/images/trading_post.jpg"
+					alt="Trading Post image" width="876px" height="1200px"
+					th:src="@{images/trading_post.jpg}"/>
+			</div>
+		</div>
+		
+		<div id="card_search_container" ng-controller="searchCtrl">
+			<form id="card_search_form">
+				<div class="form-group" id="group_card_name">
+					<label for="input_card_name">Card Name</label>
+					<input type="text" class="form-control" name="input_card_name" id="input_card_name" placeholder="e.g. Storm Crow"/>
+				</div>
+				<div class="form-group" id="group_game_name">
+					<label for="input_game_name">Game</label>
+					<select class="form-control" name="input_game_name" id="input_game_name">
+						<option></option>
+						<option>Magic the Gathering</option>
+						<option>Pokemon</option>
+						<option>Star Wars: Destiny</option>
+					</select>
+				</div>
+				<div class="form-group" id="group_set_name">
+					<label for="input_set_name">Set</label>
+					<input type="text" class="form-control" name="input_set_name" id="input_set_name" placeholder="e.g. Eighth Edition"/>
+				</div>
+				<div class="form-group" id="group_price_range">
+					<label for="input_price_range_div">Price Range (USD)</label>
+					<div id="input_price_range_div">
+						<input type="number" class="form-control" name="input_price_range_min" id="input_price_range_min" placeholder="0.00" step="0.01" min="0.00"/>
+						<span>-</span>
+						<input type="number" class="form-control" name="input_price_range_max" id="input_price_range_max" placeholder="999.99" step="0.01" min="0.00"/>
+					</div>
+				</div>
+				<button type="button" class="btn btn-primary" id="search_btn" ng-click="onSubmitFunc()" style="width: 240px;">Search</button>
+			</form>
+			
+			<!-- Use Angular ng-repeat to display results -->
+			<div id="search_result_container">
+				<div class="search_result_table" ng-repeat="search_result in apiSearchResults">
+					<img src="{{search_result.imgUrl}}" width="223px" height="310px"></img>
+					<div class="search_result_table_desc">
+						<h1>{{search_result.cardName}}</h1>
+						<p>{{search_result.setName}}</p>
+						<br/><br/>
+						<div class="buy_div">
+							<p>Stock: {{search_result.stock}}</p>
+							<p>Price: $ {{search_result.price}}</p>
+							<button class="btn btn-default btn-xs" onclick="buyBtnFunc()">Add to Cart</button>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</body>
+</html>

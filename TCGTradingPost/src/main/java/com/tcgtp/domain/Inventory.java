@@ -20,7 +20,12 @@ public class Inventory {
 
 	private String cardName;
 	private String game;
+<<<<<<< HEAD:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
 	private Long cardID;
+=======
+	private String setName;
+	private String cardID;
+>>>>>>> master:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
 	private BigDecimal price;
 	private Integer stock;
 	
@@ -28,17 +33,44 @@ public class Inventory {
 	public Inventory() {
 		super();
 	}
+<<<<<<< HEAD:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
 	public Inventory(String cardName, String game, Long cardID, BigDecimal price, Integer stock) {
 		super();
+=======
+	
+	
+	
+	
+	
+	// Setters
+	
+	public void setItemID(Long itemID) {
+		this.itemID = itemID;
+	}
+	public void setCardName(String cardName) {
+>>>>>>> master:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
 		this.cardName = cardName;
+	}
+	public void setGame(String game) {
 		this.game = game;
+	}
+	public void setCardID(String cardID) {
 		this.cardID = cardID;
+	}
+	public void setPrice(BigDecimal price) {
 		this.price = price;
+	}
+	public void setStock(Integer stock)	 {
 		this.stock = stock;
+	}
+	public void setSetName(String setName)	 {
+		this.setName = setName;
 	}
 	
 	
-	//Getters and Setters
+	
+	
+	//Getters
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_INVENTORY_ID")
@@ -47,16 +79,24 @@ public class Inventory {
 	public Long getItemID() {
 		return itemID;
 	}
-	@Column(name="cardName", nullable=false, length=200)
+	@Column(name="cardName", nullable=false)
 	public String getCardName() {
 		return cardName;
 	}
-	@Column(name="game", nullable=false, length=30)
+	@Column(name="game", nullable=false)
 	public String getGame() {
 		return game;
 	}
+	@Column(name="setName")
+	public String getSetName() {
+		return setName;
+	}
 	@Column(name="cardID", nullable=false, unique=true)
+<<<<<<< HEAD:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
 	public Long getCardID() {
+=======
+	public String getCardID() {
+>>>>>>> master:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
 		return cardID;
 	}
 	@Column(name="price", nullable=false)
@@ -67,8 +107,12 @@ public class Inventory {
 	public Integer getStock() {
 		return stock;
 	}
+
+
+
 	
 	
+<<<<<<< HEAD:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
 	public void setItemID(Long itemID) {
 		this.itemID = itemID;
 	}
@@ -87,6 +131,10 @@ public class Inventory {
 	public void setStock(Integer stock)	 {
 		this.stock = stock;
 	}
+=======
+	
+
+>>>>>>> master:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
 	
 	
 }

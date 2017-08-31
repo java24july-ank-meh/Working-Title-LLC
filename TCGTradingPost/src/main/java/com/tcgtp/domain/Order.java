@@ -18,7 +18,7 @@ import javax.persistence.Table;
 public class Order {
 
 	
-	private long orderID;
+	private Long orderID;
 	
 	private User customerID;
 	private Date datePlaced;
@@ -29,7 +29,11 @@ public class Order {
 	public Order() {
 		super();
 	}
+<<<<<<< HEAD:TCGTradingPost/src/main/java/com/tcgtp/domain/Order.java
 	public Order(long orderID, User customerID, Date datePlaced, String shippingAddress, OrderStatus statusID) {
+=======
+	public Order(Long orderID, User customerID, Date datePlaced, String shippingAddress, OrderStatus statusID) {
+>>>>>>> master:TCGTradingPost/src/main/java/com/tcgtp/domain/Order.java
 		super();
 		this.orderID = orderID;
 		this.customerID = customerID;
@@ -52,7 +56,11 @@ public class Order {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDER_ID")
 	@SequenceGenerator(name="SQ_ORDER_ID", sequenceName="SQ_ORDER_ID")
 	@Column(name="orderID")
+<<<<<<< HEAD:TCGTradingPost/src/main/java/com/tcgtp/domain/Order.java
 	public long getOrderID() {
+=======
+	public Long getOrderID() {
+>>>>>>> master:TCGTradingPost/src/main/java/com/tcgtp/domain/Order.java
 		return orderID;
 	}
 	@ManyToOne
@@ -75,7 +83,7 @@ public class Order {
 	}
 	
 	
-	public void setOrderID(long orderID) {
+	public void setOrderID(Long orderID) {
 		this.orderID = orderID;
 	}
 	public void setCustomerID(User customerID) {

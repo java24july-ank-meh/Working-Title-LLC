@@ -16,7 +16,10 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
+<<<<<<< HEAD
 @SequenceGenerator(name="ROLE_ID_GEN")
+=======
+>>>>>>> master
 @Table(name="ROLES")
 public class Role {
 

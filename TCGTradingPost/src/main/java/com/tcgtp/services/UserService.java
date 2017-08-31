@@ -10,7 +10,11 @@ public interface UserService {
 	
 	public User getById(Long userID);
  
+<<<<<<< HEAD
 	public User saveOrUpdate(User domainObject);
+=======
+	public User saveOrUpdate(User user);
+>>>>>>> master
  
     public void delete(Long userID);
 	

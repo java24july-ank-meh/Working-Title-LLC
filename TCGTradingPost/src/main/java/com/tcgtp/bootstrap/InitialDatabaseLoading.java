@@ -15,6 +15,10 @@ import com.tcgtp.domain.Role;
 import com.tcgtp.domain.User;
 import com.tcgtp.repositories.InventoryRepository;
 import com.tcgtp.repositories.OrderStatusRepository;
+<<<<<<< HEAD
+=======
+import com.tcgtp.services.InventoryService;
+>>>>>>> master
 import com.tcgtp.services.RoleService;
 import com.tcgtp.services.UserService;
 
@@ -24,6 +28,10 @@ public class InitialDatabaseLoading implements ApplicationListener<ContextRefres
 	
 	private UserService userService;
 	private RoleService roleService;
+<<<<<<< HEAD
+=======
+	private InventoryService inventoryService;
+>>>>>>> master
 	
 	private Logger log = Logger.getLogger(InitialDatabaseLoading.class);
 	
@@ -37,6 +45,14 @@ public class InitialDatabaseLoading implements ApplicationListener<ContextRefres
         this.roleService = roleService;
     }
 	
+<<<<<<< HEAD
+=======
+	@Autowired
+    public void setInventoryService(InventoryService inventoryService) {
+        this.inventoryService = inventoryService;
+    }
+	
+>>>>>>> master
 	
 	// The primary method that executes when the application starts
 	@Override
@@ -52,11 +68,46 @@ public class InitialDatabaseLoading implements ApplicationListener<ContextRefres
 
 	private void addInventory() {
 		Inventory item1 = new Inventory();
+<<<<<<< HEAD
 		item1.setCardName("Counterspell");
 		item1.setGame("Magic the Gathering");
 		item1.setPrice(new BigDecimal(2.50));
 		item1.setStock(10);
 		item1.setItemID(new Long(413585));
+=======
+		item1.setCardName("Pikachu");
+		item1.setCardID("bw11-RC7");
+		item1.setSetName("Legendary Treasures");
+		item1.setGame("Pokemon");
+		item1.setPrice(new BigDecimal(12.50));
+		item1.setStock(3);
+		Inventory item2 = new Inventory();
+		item2.setCardName("Counterspell");
+		item2.setCardID("413585");
+		item2.setSetName("Eternal Masters");
+		item2.setGame("Magic the Gathering");
+		item2.setPrice(new BigDecimal(2.50));
+		item2.setStock(10);
+		Inventory item3 = new Inventory();
+		item3.setCardName("Sol Ring");
+		item3.setCardID("405389");
+		item3.setSetName("Commander 2015");
+		item3.setGame("Magic the Gathering");
+		item3.setPrice(new BigDecimal(3.10));
+		item3.setStock(5);
+		
+		List<Inventory> inv = new ArrayList<>();
+		
+		inv.add(item1);
+		inv.add(item2);
+		inv.add(item3);
+		
+		for (Inventory i : inv) {
+			inventoryService.saveOrUpdate(i);
+		}
+		
+		log.info("Inventory saved!");
+>>>>>>> master
 		
 	}
 
