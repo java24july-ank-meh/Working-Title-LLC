@@ -25,19 +25,21 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
 	@Bean
-	public DaoAuthenticationProvider daoAuthenticationProvider(PasswordEncoder passwordEncoder, UserDetailsService userDetailsService) {
-		DaoAuthenticationProvider daoAuthProvider = new DaoAuthenticationProvider();
-		daoAuthProvider.setPasswordEncoder(passwordEncoder);
-		daoAuthProvider.setUserDetailsService(userDetailsService);
-		return daoAuthProvider;
+    public DaoAuthenticationProvider daoAuthenticationProvider(PasswordEncoder passwordEncoder,
+                                                               UserDetailsService userDetailsService){
+        DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
+        daoAuthenticationProvider.setPasswordEncoder(passwordEncoder);
+        daoAuthenticationProvider.setUserDetailsService(userDetailsService);
+        return daoAuthenticationProvider;
 	}
 	
 	private AuthenticationProvider authenticationProvider;
-	@Autowired
-	@Qualifier(value="daoAuthenticationProvider")
-	public void setAuthenticationProvider(AuthenticationProvider authenticationProvider) {
-		this.authenticationProvider = authenticationProvider;
-	}
+
+    @Autowired
+    @Qualifier("daoAuthenticationProvider")
+    public void setAuthenticationProvider(AuthenticationProvider authenticationProvider) {
+        this.authenticationProvider = authenticationProvider;
+    }
 	
 	@Autowired
 	public void configureAuthenticationManager(AuthenticationManagerBuilder authenticationManagerBuilder) {
@@ -47,7 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-        		.authorizeRequests().antMatchers("/", "/home", "/cardSearch", "/console/**")
+        		.authorizeRequests().antMatchers("/", "/home", "/cardSearch", "/console/**", "/cardSearcher")
         		.permitAll().anyRequest().authenticated()
         	.and()
         		.formLogin().loginPage("/login").permitAll()

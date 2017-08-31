@@ -10,6 +10,7 @@ public class CommonBeanConfig {
 	// Creates bean for password encryptor
 	@Bean
 	public StrongPasswordEncryptor passwordEncryptor() {
-		return new StrongPasswordEncryptor();
+		StrongPasswordEncryptor strongPasswordEncryptor = new StrongPasswordEncryptor();
+		return strongPasswordEncryptor;
 	}
 }

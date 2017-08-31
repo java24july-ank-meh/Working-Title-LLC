@@ -11,5 +11,5 @@ public interface OrderService {
  
 	Order saveOrUpdate(Order order);
  
-    void delete(Integer id);
+    void delete(Long id);
 }
