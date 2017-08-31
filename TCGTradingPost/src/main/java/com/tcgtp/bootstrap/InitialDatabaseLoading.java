@@ -13,8 +13,6 @@ import org.springframework.stereotype.Component;
 import com.tcgtp.domain.Inventory;
 import com.tcgtp.domain.Role;
 import com.tcgtp.domain.User;
-import com.tcgtp.repositories.InventoryRepository;
-import com.tcgtp.repositories.OrderStatusRepository;
 import com.tcgtp.services.InventoryService;
 import com.tcgtp.services.RoleService;
 import com.tcgtp.services.UserService;
@@ -54,8 +52,32 @@ public class InitialDatabaseLoading implements ApplicationListener<ContextRefres
 		assignRoles();
 		
 		addInventory();
+		
+		addNorasSpecialTestingThings();
 	}
 
+
+	//I use these a lot in my tests so I added them here to avoid a lot of code rewriting.
+	private void addNorasSpecialTestingThings() {
+		User testSparkle = new User();
+		
+		List<Role> testRoles = new ArrayList<Role>();
+		Role r = new Role();
+		r.setRoleName("Princess");
+		
+		roleService.saveOrUpdate(r);
+		
+		testRoles.add(r);
+		
+		testSparkle.setUsername("FriendshipPrincess");
+		testSparkle.setPassword("HelloThere");
+		testSparkle.setEmail("friendship@equestria.gov");
+		testSparkle.setEncryptedPassword("This is totally encrypted");
+		testSparkle.setRoles(testRoles);
+		
+		userService.saveOrUpdate(testSparkle);
+		
+	}
 
 	private void addInventory() {
 		Inventory item1 = new Inventory();

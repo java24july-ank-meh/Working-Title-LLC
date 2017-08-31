@@ -5,24 +5,31 @@ import static org.junit.Assert.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
+@Component
 public class EncryptionServiceTest {
 
+	private EncryptionService encryptionService;
+	
+	@Autowired
+    public void setEncryptionService(EncryptionService encryptionService) {
+        this.encryptionService = encryptionService;
+    }
 
 	@Test
 	public void testEncryptString() {
-		EncryptionServiceImpl service = new EncryptionServiceImpl();
 		String test = "HelloThere";
 		//make sure it works by making sure that the end result of the encryption is not the same as the original
-		assertFalse(test.equals(service.encryptString(test)));
+		assertFalse(test.equals(encryptionService.encryptString(test)));
 	}
 
 	@Test
 	public void testCheckPassword() {
-		EncryptionServiceImpl service = new EncryptionServiceImpl();
 		String test = "HelloThere";
-		String codedTest = service.encryptString(test);
-		assertTrue(service.checkPassword(test, codedTest));
+		String codedTest = encryptionService.encryptString(test);
+		assertTrue(encryptionService.checkPassword(test, codedTest));
 	}
 
 }

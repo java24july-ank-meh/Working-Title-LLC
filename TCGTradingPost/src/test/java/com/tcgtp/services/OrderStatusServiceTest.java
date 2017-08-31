@@ -8,19 +8,27 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Ignore;
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.tcgtp.domain.OrderStatus;
 
+@Component
 public class OrderStatusServiceTest {
-	private OrderStatusServiceImpl service;
+	private OrderStatusService service;
 	private Long testID;
 	private String testName;
+	
+	@Autowired
+    public void setOrderStatusService(OrderStatusService userService) {
+        service = userService;
+    }
 
 	@Before
 	public void setUpBeforeClass() throws Exception {
 		OrderStatus test = new OrderStatus();
 		test.setStatusName("Test Status");
-		service = new OrderStatusServiceImpl();
+		test.setStatusID(new Long(0));
 		test = service.saveOrUpdate(test);
 		
 		testID = test.getStatusID();
