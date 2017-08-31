@@ -28,7 +28,7 @@ public class AccountInfoController {
 	
 	
 
-	@RequestMapping(value="/accountInfo", method=RequestMethod.GET)
+	@RequestMapping(value="/accountInfoLoad", method=RequestMethod.GET)
 	public ResponseEntity<String> accInfo(Authentication authentication, Model model) {
 		
 		System.out.println("principal name: "+authentication.getName());
@@ -45,13 +45,16 @@ public class AccountInfoController {
 			}
 		}
 		
-		json.addProperty("username", currentUser.getUsername());
-		json.addProperty("email", currentUser.getEmail());
-		json.addProperty("role", gson.toJson(currentUser.getRoles()));
-		json.addProperty("account_status", currentUser.getEnabled().toString());
+		User responseUser = new User();
+		responseUser.setUsername(currentUser.getUsername());
+		responseUser.setEmail(currentUser.getEmail());
+		responseUser.setRoles(currentUser.getRoles());
+		responseUser.setEnabled(currentUser.getEnabled());
+		
+		model.addAttribute("accountInfoObj", responseUser);
 		
 		
-		return new ResponseEntity<String>(gson.toJson(json) , HttpStatus.OK);
+		return new ResponseEntity<String>("accountInfo response" , HttpStatus.OK);
 	}
 	
 }

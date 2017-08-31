@@ -1,8 +1,8 @@
-<div class="text-center">
+<div class="text-center" th:object="${accountInfoObj}">
     <h1>Account Info</h1>
     <br/>
-	<p>Username: </p>
-	<p>Email: </p>
-	<p>Role: </p>
-	<p>Account Lock Status: </p>
+	<p>Username: <span th:text="${accountInfoObj.User}">username</span></p>
+	<p>Email: <span th:text="${accountInfoObj.getEmail}">email</span></p>
+	<p>Roles: <span th:text="${accountInfoObj.getRoles}">roles</span></p>
+	<p>Account Enabled: <span th:text="${accountInfoObj.getEnabled}">enabled</span></p>
 </div>
