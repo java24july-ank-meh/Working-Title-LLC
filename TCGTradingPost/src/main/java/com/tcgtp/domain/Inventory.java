@@ -1,4 +1,6 @@
-package com.tcgtp.hibernate;
+package com.tcgtp.domain;
+
+import java.math.BigDecimal;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,29 +11,24 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@SequenceGenerator(
-		name="SQ_INVENTORY_ID_GEN",
-		sequenceName="SQ_INVENTORY_ID_GEN",
-		initialValue=1000000, allocationSize=1
-		)
 @Table(name="INVENTORY")
 public class Inventory {
 
 	
 	
-	private long itemID;
+	private Long itemID;
 
 	private String cardName;
 	private String game;
-	private long cardID;
-	private double price;
-	private int stock;
+	private Long cardID;
+	private BigDecimal price;
+	private Integer stock;
 	
 	// Constructors
 	public Inventory() {
 		super();
 	}
-	public Inventory(String cardName, String game, long cardID, double price, int stock) {
+	public Inventory(String cardName, String game, Long cardID, BigDecimal price, Integer stock) {
 		super();
 		this.cardName = cardName;
 		this.game = game;
@@ -44,9 +41,10 @@ public class Inventory {
 	//Getters and Setters
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_INVENTORY_ID_GEN")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_INVENTORY_ID")
+	@SequenceGenerator(name="SQ_INVENTORY_ID", sequenceName="SQ_INVENTORY_ID")
 	@Column(name="itemID")
-	public long getItemID() {
+	public Long getItemID() {
 		return itemID;
 	}
 	@Column(name="cardName", nullable=false, length=200)
@@ -58,20 +56,20 @@ public class Inventory {
 		return game;
 	}
 	@Column(name="cardID", nullable=false, unique=true)
-	public long getCardID() {
+	public Long getCardID() {
 		return cardID;
 	}
 	@Column(name="price", nullable=false)
-	public double getPrice() {
+	public BigDecimal getPrice() {
 		return price;
 	}
 	@Column(name="stock", nullable=false)
-	public double getStock() {
+	public Integer getStock() {
 		return stock;
 	}
 	
 	
-	public void setItemID(long itemID) {
+	public void setItemID(Long itemID) {
 		this.itemID = itemID;
 	}
 	public void setCardName(String cardName) {
@@ -80,13 +78,13 @@ public class Inventory {
 	public void setGame(String game) {
 		this.game = game;
 	}
-	public void setCardID(long cardID) {
+	public void setCardID(Long cardID) {
 		this.cardID = cardID;
 	}
-	public void setPrice(double price) {
+	public void setPrice(BigDecimal price) {
 		this.price = price;
 	}
-	public void setStock(int stock)	 {
+	public void setStock(Integer stock)	 {
 		this.stock = stock;
 	}
 	

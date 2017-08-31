@@ -1,8 +1,11 @@
-package com.tcgtp.hibernate;
+package com.tcgtp.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
@@ -10,7 +13,7 @@ import javax.persistence.Table;
 public class OrderStatus {
 	
 	
-	private int statusID;
+	private Long statusID;
 	
 	private String statusName;
 	
@@ -18,7 +21,7 @@ public class OrderStatus {
 	public OrderStatus() {
 		super();
 	}
-	public OrderStatus(int statusID, String statusName) {
+	public OrderStatus(Long statusID, String statusName) {
 		super();
 		this.statusID = statusID;
 		this.statusName = statusName;
@@ -27,11 +30,13 @@ public class OrderStatus {
 	// Getters and Setters
 	
 	@Id
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDERSTAT_ID")
+	@SequenceGenerator(name="SQ_ORDERSTAT_ID", sequenceName="SQ_ORDERSTAT_ID")
 	@Column(name="statusID")
-	public int getStatusID() {
+	public Long getStatusID() {
 		return statusID;
 	}
-	public void setStatusID(int statusID) {
+	public void setStatusID(Long statusID) {
 		this.statusID = statusID;
 	}
 	

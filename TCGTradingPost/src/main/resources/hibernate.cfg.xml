@@ -33,11 +33,12 @@
 
 		<property name="hibernate.cache.provider_class">org.hibernate.cache.EhCacheProvider</property>
 
-		<mapping class="com.tcgtp.hibernate.Order"></mapping>
-		<mapping class="com.tcgtp.hibernate.OrderStatus"></mapping>
-		<mapping class="com.tcgtp.hibernate.OrderItem"></mapping>
-		<mapping class="com.tcgtp.hibernate.User"></mapping>
-		<mapping class="com.tcgtp.hibernate.Inventory"></mapping>
+		<mapping class="com.tcgtp.domain.Order"></mapping>
+		<mapping class="com.tcgtp.domain.OrderStatus"></mapping>
+		<mapping class="com.tcgtp.domain.OrderItem"></mapping>
+		<mapping class="com.tcgtp.domain.User"></mapping>
+		<mapping class="com.tcgtp.domain.Inventory"></mapping>
+		<mapping class="com.tcgtp.domain.Role"></mapping>
 
 
 	</session-factory>

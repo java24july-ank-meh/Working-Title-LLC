@@ -1,36 +1,32 @@
-package com.tcgtp.hibernate;
+package com.tcgtp.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 @Entity
-@SequenceGenerator(
-		name="SQ_ORDERITEM_ID_GEN",
-		sequenceName="SQ_ORDERITEM_ID_GEN",
-		initialValue=4000000,
-		allocationSize=1
-		)
 @Table(name="ORDERITEM")
 public class OrderItem {
 
-	private long orderItemID;
+	private Long orderItemID;
 	
 	private String itemName;
-	private long itemID;
-	private int quantity;
-	private long orderID;
+	private Inventory itemID;
+	private Integer quantity;
+	private Order orderID;
 	
 	// Constructors
 	public OrderItem() {
 		super();
 	}
 
-	public OrderItem(String itemName, long itemID, int quantity, long orderID) {
+	public OrderItem(String itemName, Inventory itemID, Integer quantity, Order orderID) {
 		super();
 		this.itemName = itemName;
 		this.itemID = itemID;
@@ -47,30 +43,33 @@ public class OrderItem {
 	// Getters and Setters
 	
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDERITEM_ID_GEN")
+	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDERITEM_ID")
+	@SequenceGenerator(name="SQ_ORDERITEM_ID", sequenceName="SQ_ORDERITEM_ID")
 	@Column(name="orderItemID")
-	public long getOrderItemID() {
+	public Long getOrderItemID() {
 		return orderItemID;
 	}
 	@Column(name="itemName")
 	public String getItemName() {
 		return itemName;
 	}
-	@Column(name="itemID", nullable=false)
-	public long getItemID() {
+	@ManyToOne
+	@JoinColumn(name="itemID")
+	public Inventory getItemID() {
 		return itemID;
 	}
 	@Column(name="quantity", nullable=false)
-	public int getQuantity() {
+	public Integer getQuantity() {
 		return quantity;
 	}
-	@Column(name="orderID", nullable=false)
-	public long getOrderID() {
+	@ManyToOne
+	@JoinColumn(name="orderID")
+	public Order getOrderID() {
 		return orderID;
 	}
 	
 
-	public void setOrderItemID(long orderItemID) {
+	public void setOrderItemID(Long orderItemID) {
 		this.orderItemID = orderItemID;
 	}
 
@@ -78,15 +77,15 @@ public class OrderItem {
 		this.itemName = itemName;
 	}
 
-	public void setItemID(long itemID) {
+	public void setItemID(Inventory itemID) {
 		this.itemID = itemID;
 	}
 
-	public void setQuantity(int quantity) {
+	public void setQuantity(Integer quantity) {
 		this.quantity = quantity;
 	}
 
-	public void setOrderID(long orderID) {
+	public void setOrderID(Order orderID) {
 		this.orderID = orderID;
 	}
 	
