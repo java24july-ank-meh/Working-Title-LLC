@@ -7,20 +7,20 @@ import org.springframework.stereotype.Service;
 @Service
 public class EncryptionServiceImpl implements EncryptionService {
 	
-	StrongPasswordEncryptor passwordEncryptor;
+	StrongPasswordEncryptor strongPasswordEncryptor;
 	@Autowired
-	public void setStrongPasswordEncryptor(StrongPasswordEncryptor passwordEncryptor) {
-		this.passwordEncryptor = passwordEncryptor;
+	public void setStrongPasswordEncryptor(StrongPasswordEncryptor strongPasswordEncryptor) {
+		this.strongPasswordEncryptor = strongPasswordEncryptor;
 	}
 
 	
 	public String encryptString(String str) {
-		return passwordEncryptor.encryptPassword(str);
+		return strongPasswordEncryptor.encryptPassword(str);
 	}
 
 	
 	public boolean checkPassword(String plainPassword, String encryptedPassword) {
-		return passwordEncryptor.checkPassword(plainPassword, encryptedPassword);
+		return strongPasswordEncryptor.checkPassword(plainPassword, encryptedPassword);
 	}
 
 }
