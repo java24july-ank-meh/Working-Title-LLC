@@ -31,7 +31,7 @@ public class TCGTradingPostApplicationTests {
 	}
 
 	@Test
-	public void contextLoads() throws Exception {
+	public void testCardSearch() throws Exception {
 		MockHttpServletRequestBuilder createMessage = post("/cardSearcher")
 				.param("cardName", "Sylveon")
 				.param("game", "Pokemon")
@@ -41,5 +41,7 @@ public class TCGTradingPostApplicationTests {
 		this.mockMvc.perform(createMessage).andDo(print())
 		.andExpect(status().is2xxSuccessful());
 	}
+	
+	
 
 }
