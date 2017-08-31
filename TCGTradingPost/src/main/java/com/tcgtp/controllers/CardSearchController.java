@@ -16,9 +16,4 @@ public class CardSearchController {
 		return "CardSearch";
 	}
 	
-	
-<<<<<<< HEAD
-=======
-	
->>>>>>> master
 }

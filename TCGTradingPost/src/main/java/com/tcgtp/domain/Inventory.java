@@ -20,12 +20,8 @@ public class Inventory {
 
 	private String cardName;
 	private String game;
-<<<<<<< HEAD:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
-	private Long cardID;
-=======
 	private String setName;
 	private String cardID;
->>>>>>> master:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
 	private BigDecimal price;
 	private Integer stock;
 	
@@ -33,10 +29,6 @@ public class Inventory {
 	public Inventory() {
 		super();
 	}
-<<<<<<< HEAD:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
-	public Inventory(String cardName, String game, Long cardID, BigDecimal price, Integer stock) {
-		super();
-=======
 	
 	
 	
@@ -48,7 +40,6 @@ public class Inventory {
 		this.itemID = itemID;
 	}
 	public void setCardName(String cardName) {
->>>>>>> master:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
 		this.cardName = cardName;
 	}
 	public void setGame(String game) {
@@ -92,11 +83,7 @@ public class Inventory {
 		return setName;
 	}
 	@Column(name="cardID", nullable=false, unique=true)
-<<<<<<< HEAD:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
-	public Long getCardID() {
-=======
 	public String getCardID() {
->>>>>>> master:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
 		return cardID;
 	}
 	@Column(name="price", nullable=false)
@@ -111,30 +98,6 @@ public class Inventory {
 
 
 	
-	
-<<<<<<< HEAD:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
-	public void setItemID(Long itemID) {
-		this.itemID = itemID;
-	}
-	public void setCardName(String cardName) {
-		this.cardName = cardName;
-	}
-	public void setGame(String game) {
-		this.game = game;
-	}
-	public void setCardID(Long cardID) {
-		this.cardID = cardID;
-	}
-	public void setPrice(BigDecimal price) {
-		this.price = price;
-	}
-	public void setStock(Integer stock)	 {
-		this.stock = stock;
-	}
-=======
-	
-
->>>>>>> master:TCGTradingPost/src/main/java/com/tcgtp/domain/Inventory.java
 	
 	
 }

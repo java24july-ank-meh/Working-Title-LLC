@@ -1,9 +1,5 @@
 package com.tcgtp.services;
 
-<<<<<<< HEAD
-public class OrderItemService {
-
-=======
 import java.util.List;
 
 import com.tcgtp.domain.OrderItem;
@@ -17,5 +13,4 @@ public interface OrderItemService {
 	public OrderItem saveOrUpdate(OrderItem item);
 
 	public void delete(Long id);
->>>>>>> master
 }

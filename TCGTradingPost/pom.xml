@@ -6,11 +6,7 @@
 	<groupId>com.tcgtp</groupId>
 	<artifactId>TCGTradingPost</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-<<<<<<< HEAD
-	<packaging>jar</packaging>
-=======
 	<packaging>war</packaging>
->>>>>>> master
 
 	<name>TCGTradingPost</name>
 	<description>Demo project for Spring Boot</description>
@@ -92,8 +88,6 @@
 		      <version>1.9.2</version>
 		</dependency>
 		
-<<<<<<< HEAD
-=======
 		<dependency>
 	    	<groupId>org.codehaus.jackson</groupId>
 	    	<artifactId>jackson-mapper-asl</artifactId>
@@ -105,8 +99,6 @@
 		    <artifactId>gson</artifactId>
 		    <version>2.3.1</version>
 		</dependency>
-				
->>>>>>> master
 		
 	</dependencies>
 

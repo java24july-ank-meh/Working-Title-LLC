@@ -8,6 +8,10 @@ searchApp.controller("searchCtrl", function($scope) {
 	$scope.buyBtnFunc = function() {
 		
 	}
+<<<<<<< HEAD
+	$scope.searchResultsFunc = function(xhrResponse) {
+		console.log("searchResultsFunc");
+=======
 	$scope.searchResultsFunc = function(xhttpr) {
 		console.log("searchResultsFunc");
 		searchResultsArr = [];
@@ -67,6 +71,7 @@ searchApp.controller("searchCtrl", function($scope) {
 			cardLookup(jsonArr[i].cardID, jsonArr[i].game, jsonArr[i].stock, jsonArr[i].price);
 		}
 		
+>>>>>>> master
 		
 		
 	}
@@ -74,6 +79,8 @@ searchApp.controller("searchCtrl", function($scope) {
 		
 		console.log("onSubmit");
 		
+<<<<<<< HEAD
+=======
 		let formCardName = document.getElementById("input_card_name").value;
 		let formGameName = document.getElementById("input_game_name").value;
 		let formSetName = document.getElementById("input_set_name").value;
@@ -87,17 +94,26 @@ searchApp.controller("searchCtrl", function($scope) {
 		formData.append("PriceMin", formPriceMin);
 		formData.append("PriceMax", formPriceMax);
 		
+>>>>>>> master
 		let xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function() {
 			console.log("readystate: "+xhr.readyState+" status: "+xhr.status)
 			if(xhr.readyState === 4 && xhr.status === 200) {
 				
+<<<<<<< HEAD
+				$scope.searchResultsFunc(xhr.);
+=======
 				$scope.searchResultsFunc(xhr);
+>>>>>>> master
 				
 			}
 		}
 		xhr.open("POST", "/cardSearcher", true);
+<<<<<<< HEAD
+		xhr.send();
+=======
 		xhr.send(formData);
+>>>>>>> master
 		
 		
 		

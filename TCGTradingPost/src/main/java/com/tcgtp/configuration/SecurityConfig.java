@@ -12,10 +12,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
-<<<<<<< HEAD
-=======
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
->>>>>>> master
 
 @Configuration
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
@@ -29,21 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	
 	@Bean
-<<<<<<< HEAD
-	public DaoAuthenticationProvider daoAuthenticationProvider(PasswordEncoder passwordEncoder, UserDetailsService userDetailsService) {
-		DaoAuthenticationProvider daoAuthProvider = new DaoAuthenticationProvider();
-		daoAuthProvider.setPasswordEncoder(passwordEncoder);
-		daoAuthProvider.setUserDetailsService(userDetailsService);
-		return daoAuthProvider;
-	}
-	
-	private AuthenticationProvider authenticationProvider;
-	@Autowired
-	@Qualifier(value="daoAuthenticationProvider")
-	public void setAuthenticationProvider(AuthenticationProvider authenticationProvider) {
-		this.authenticationProvider = authenticationProvider;
-	}
-=======
     public DaoAuthenticationProvider daoAuthenticationProvider(PasswordEncoder passwordEncoder,
                                                                UserDetailsService userDetailsService){
         DaoAuthenticationProvider daoAuthenticationProvider = new DaoAuthenticationProvider();
@@ -59,7 +41,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public void setAuthenticationProvider(AuthenticationProvider authenticationProvider) {
         this.authenticationProvider = authenticationProvider;
     }
->>>>>>> master
 	
 	@Autowired
 	public void configureAuthenticationManager(AuthenticationManagerBuilder authenticationManagerBuilder) {
@@ -69,11 +50,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
         httpSecurity
-<<<<<<< HEAD
-        		.authorizeRequests().antMatchers("/", "/home", "/cardSearch", "/console/**")
-=======
         		.authorizeRequests().antMatchers("/", "/home", "/cardSearch", "/console/**", "/cardSearcher")
->>>>>>> master
         		.permitAll().anyRequest().authenticated()
         	.and()
         		.formLogin().loginPage("/login").permitAll()

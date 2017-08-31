@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en-US"
+<<<<<<< HEAD
+	xmlns:th="http://www.thymeleaf.org">
+=======
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+>>>>>>> master
 	<head>
 		<meta charset="ISO-8859-1"/>
 		<meta author="Working Title, LLC"/>
@@ -44,10 +48,14 @@
 				<a type="button" id="cart_btn" class="btn btn-default btn-sm" ui-sref="cart">Cart</a>
 				<a type="button" class="btn btn-default btn-sm" ui-sref="accountInfo">AccountInfo</a>
 				<a type="button" class="btn btn-default btn-sm" ui-sref="orderHistory">Order History</a>
+<<<<<<< HEAD
+				<a type="button" id="logout_btn" class="btn btn-danger btn-sm">Logout</a>
+=======
 				<form th:action="@{/logout}" method="post">
 				<input type="submit" id="logout_btn" class="btn btn-danger btn-sm" value ="Logout"/>
 				</form>
 
+>>>>>>> master
 			</div>
 		</header>
 		<div id="page_body">

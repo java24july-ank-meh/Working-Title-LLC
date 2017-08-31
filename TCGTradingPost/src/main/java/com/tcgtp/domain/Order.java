@@ -29,11 +29,7 @@ public class Order {
 	public Order() {
 		super();
 	}
-<<<<<<< HEAD:TCGTradingPost/src/main/java/com/tcgtp/domain/Order.java
-	public Order(long orderID, User customerID, Date datePlaced, String shippingAddress, OrderStatus statusID) {
-=======
 	public Order(Long orderID, User customerID, Date datePlaced, String shippingAddress, OrderStatus statusID) {
->>>>>>> master:TCGTradingPost/src/main/java/com/tcgtp/domain/Order.java
 		super();
 		this.orderID = orderID;
 		this.customerID = customerID;
@@ -56,11 +52,7 @@ public class Order {
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDER_ID")
 	@SequenceGenerator(name="SQ_ORDER_ID", sequenceName="SQ_ORDER_ID")
 	@Column(name="orderID")
-<<<<<<< HEAD:TCGTradingPost/src/main/java/com/tcgtp/domain/Order.java
-	public long getOrderID() {
-=======
 	public Long getOrderID() {
->>>>>>> master:TCGTradingPost/src/main/java/com/tcgtp/domain/Order.java
 		return orderID;
 	}
 	@ManyToOne
