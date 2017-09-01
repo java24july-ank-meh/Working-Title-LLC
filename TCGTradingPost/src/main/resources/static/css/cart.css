@@ -1,0 +1,10 @@
+#carts_container {
+	z-index: 0;
+	position: absolute;
+	margin-top: 200px;
+	color: black;
+	text-shadow: 0 0 8px white;
+	font-size: 1.5em;
+	width: 100%;
+	text-align: center;
+}
