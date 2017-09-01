@@ -2,6 +2,7 @@ package com.tcgtp.bootstrap;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -11,11 +12,15 @@ import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
 
 import com.tcgtp.domain.Inventory;
+import com.tcgtp.domain.Order;
+import com.tcgtp.domain.OrderStatus;
 import com.tcgtp.domain.Role;
 import com.tcgtp.domain.User;
 import com.tcgtp.repositories.InventoryRepository;
 import com.tcgtp.repositories.OrderStatusRepository;
 import com.tcgtp.services.InventoryService;
+import com.tcgtp.services.OrderService;
+import com.tcgtp.services.OrderStatusService;
 import com.tcgtp.services.RoleService;
 import com.tcgtp.services.UserService;
 
@@ -26,6 +31,8 @@ public class InitialDatabaseLoading implements ApplicationListener<ContextRefres
 	private UserService userService;
 	private RoleService roleService;
 	private InventoryService inventoryService;
+	private OrderService orderService;
+	private OrderStatusService orderStatusService;
 	
 	private Logger log = Logger.getLogger(InitialDatabaseLoading.class);
 	
@@ -44,6 +51,15 @@ public class InitialDatabaseLoading implements ApplicationListener<ContextRefres
         this.inventoryService = inventoryService;
     }
 	
+	@Autowired
+    public void setOrderService(OrderService orderService) {
+        this.orderService = orderService;
+    }
+	
+	@Autowired
+    public void setOrderStatusService(OrderStatusService orderStatusService) {
+        this.orderStatusService = orderStatusService;
+    }
 	
 	// The primary method that executes when the application starts
 	@Override
@@ -54,8 +70,44 @@ public class InitialDatabaseLoading implements ApplicationListener<ContextRefres
 		assignRoles();
 		
 		addInventory();
+		
+		addOrderStatus();
+		addOrders();
 	}
 
+
+	private void addOrderStatus() {
+		OrderStatus os1 = new OrderStatus();
+		os1.setStatusName("SHIPPED");
+		OrderStatus os2 = new OrderStatus();
+		os2.setStatusName("NOT SHIPPED");
+		List<OrderStatus> osArr = new ArrayList<>();
+		
+		osArr.add(os1);
+		osArr.add(os2);
+		
+		for (OrderStatus o : osArr) {
+			orderStatusService.saveOrUpdate(o);
+		}
+		
+	}
+
+	private void addOrders() {
+		Order order1 = new Order();
+		order1.setCustomerID(userService.findByUsername("vcommero"));
+		order1.setDatePlaced(new Date());
+		order1.setShippingAddress("123 Nowhere Dr, Anytown, VA");
+		order1.setStatusID(orderStatusService.getById(new Long(1)));
+		
+		List<Order> orders = new ArrayList<>();
+		
+		orders.add(order1);
+		
+		for (Order o : orders) {
+			orderService.saveOrUpdate(o);
+		}
+		
+	}
 
 	private void addInventory() {
 		Inventory item1 = new Inventory();

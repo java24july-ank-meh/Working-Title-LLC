@@ -1,4 +1,34 @@
 <div>
 	<h1>Order History</h1>
-	
+	<br/>
+	<button type="btn btn-default" onClick="orderHistoryLoad()">Refresh</button>
+	<!-- <tr th:each="order : ${ordersModel}">
+        <td th:text="${order.orderID}">1</td>
+        <td th:text="${order.datePlaced}">2</td>
+        <td th:text="${order.shippingAddress}">3</td>
+        <td th:text="${order.status}">4</td>
+    </tr> -->
+    
+    <table>
+        <tr th:each="var : ${#vars.getVariableNames()}">
+            <td th:text="${var}"></td>
+            <td th:text="${#vars.getVariable(var)}"></td>
+        </tr>
+        <!-- Adding these manually because they're considered special.
+             see https://github.com/thymeleaf/thymeleaf/blob/thymeleaf-3.0.3.RELEASE/src/main/java/org/thymeleaf/context/WebEngineContext.java#L199
+        -->
+        <tr>
+            <td>param</td>
+            <td th:text="${#vars.getVariable('param')}"></td>
+        </tr>
+        <tr>
+            <td>session</td>
+            <td th:text="${#vars.getVariable('session')}"></td>
+        </tr>
+        <tr>
+            <td>application</td>
+            <td th:text="${#vars.getVariable('application')}"></td>
+        </tr>
+    </table>
+    
 </div>

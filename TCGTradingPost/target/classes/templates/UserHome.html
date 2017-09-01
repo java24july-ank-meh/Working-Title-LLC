@@ -33,7 +33,7 @@
 		th:src="@{js/userHome.js}"></script>
 	
 	
-	<body ng-app="routerApp">
+	<body ng-app="routerApp" ng-controller="Ctrllr">
 		<header class="page-header">
 			<div id="header_banner">
 				<h1>TCG Trading Post</h1>
@@ -42,7 +42,7 @@
 				<a type="button" id="home_btn" class="btn btn-default btn-sm" href="Home.html" th:href="@{/}">Home</a>
 				<a type="button" id="card_search_btn" class="btn btn-default btn-sm" href="CardSearch.html" th:href="@{/cardSearch}">Card Search</a>
 				<a type="button" id="cart_btn" class="btn btn-default btn-sm" ui-sref="cart">Cart</a>
-				<a type="button" class="btn btn-default btn-sm" ui-sref="accountInfo">AccountInfo</a>
+				<a type="button" class="btn btn-default btn-sm" ui-sref="accountInfo" ng-click="accountInfoLoader()">AccountInfo</a>
 				<a type="button" class="btn btn-default btn-sm" ui-sref="orderHistory">Order History</a>
 				<form th:action="@{/logout}" method="post">
 				<input type="submit" id="logout_btn" class="btn btn-danger btn-sm" value ="Logout"/>

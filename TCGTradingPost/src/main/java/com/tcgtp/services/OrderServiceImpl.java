@@ -3,16 +3,22 @@ package com.tcgtp.services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.tcgtp.domain.Order;
+import com.tcgtp.repositories.OrderItemRepository;
 import com.tcgtp.repositories.OrderRepository;
 
 @Service
 public class OrderServiceImpl implements OrderService {
 
 	private OrderRepository repository;
+	@Autowired
+    public void setOrderRepository(OrderRepository repository) {
+        this.repository = repository;
+    }
 	
 	@Override
 	public List<Order> listAll() {
