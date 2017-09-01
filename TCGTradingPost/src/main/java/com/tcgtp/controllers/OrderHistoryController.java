@@ -8,12 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import com.tcgtp.domain.Order;
 import com.tcgtp.domain.User;
 import com.tcgtp.services.OrderService;
@@ -35,7 +37,7 @@ public class OrderHistoryController {
 		this.orderService = orderService;
 	}
 	@RequestMapping(value="/orderHistoryLoad", method=RequestMethod.GET)
-	public void orderHistory(Authentication authentication, Model model){
+	public ResponseEntity<String> orderHistory(Authentication authentication){
 		Gson gson = new Gson();
 		
 		User currentUser = null;
@@ -53,6 +55,18 @@ public class OrderHistoryController {
 			}
 		}
 		
-		model.addAttribute("ordersModel", "aadsdfsdafdsaf");
+		List<JsonObject> jsonArr = new ArrayList<>();
+		
+		for (Order o : orders) {
+			JsonObject json = new JsonObject();
+			json.addProperty("orderID", o.getOrderID());
+			json.addProperty("shippingAddress", o.getShippingAddress());
+			json.addProperty("datePlaced", o.getDatePlaced().toString());
+			json.addProperty("orderStatus", o.getStatusID().getStatusName());
+			
+			jsonArr.add(json);
+		}
+		
+		return new ResponseEntity<String>(gson.toJson(jsonArr), HttpStatus.OK);
 	}
 }

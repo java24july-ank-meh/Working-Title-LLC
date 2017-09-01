@@ -1,4 +1,5 @@
 let accountInfoObj = [];
+let orderHistoryObj = [];
 
 
 let routerApp = angular.module('routerApp', ['ui.router']);
@@ -8,6 +9,25 @@ routerApp.controller("Ctrllr", function($scope) {
 	$scope.accountInfoLoader = function() {
 		$scope.accountInfoScope = accountInfoObj;
 		$scope.$apply();
+	}
+	
+	$scope.orderHistoryResults = [];
+	$scope.orderHistoryLoader = function() {
+		console.log("orderHistoryLoad");
+		let xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function() {
+			console.log("readystate: "+xhr.readyState+" status: "+xhr.status)
+			if(xhr.readyState === 4 && xhr.status === 200) {
+				
+				orderHistoryObj = JSON.parse(xhr.responseText);
+				$scope.orderHistoryResults = orderHistoryObj;
+				$scope.$apply();
+				
+			}
+		}
+		xhr.open("GET", "/orderHistoryLoad", true);
+		xhr.send();
+		
 	}
 });
 
@@ -35,20 +55,6 @@ routerApp.config(function($stateProvider, $urlRouterProvider) {
   
 });
 
-let orderHistoryLoad = function() {
-	console.log("orderHistoryLoad");
-	let xhr = new XMLHttpRequest();
-	xhr.onreadystatechange = function() {
-		console.log("readystate: "+xhr.readyState+" status: "+xhr.status)
-		if(xhr.readyState === 4 && xhr.status === 200) {
-			
-			console.log("orderHistory done!");
-			
-		}
-	}
-	xhr.open("GET", "/orderHistoryLoad", true);
-	xhr.send();
-}
 
 
 let getUserData = function() {

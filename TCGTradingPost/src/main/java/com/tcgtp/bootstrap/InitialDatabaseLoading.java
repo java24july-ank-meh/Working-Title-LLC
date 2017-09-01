@@ -97,7 +97,7 @@ public class InitialDatabaseLoading implements ApplicationListener<ContextRefres
 		order1.setCustomerID(userService.findByUsername("vcommero"));
 		order1.setDatePlaced(new Date());
 		order1.setShippingAddress("123 Nowhere Dr, Anytown, VA");
-		order1.setStatusID(orderStatusService.getById(new Long(1)));
+		order1.setStatusID(orderStatusService.getById(new Long(50)));
 		
 		List<Order> orders = new ArrayList<>();
 		

@@ -1,34 +1,24 @@
-<div>
+<div ng-controller="Ctrllr">
 	<h1>Order History</h1>
+	<button type="button" class="btn btn-default" ng-click="orderHistoryLoader()">Refresh</button>
 	<br/>
-	<button type="btn btn-default" onClick="orderHistoryLoad()">Refresh</button>
-	<!-- <tr th:each="order : ${ordersModel}">
-        <td th:text="${order.orderID}">1</td>
-        <td th:text="${order.datePlaced}">2</td>
-        <td th:text="${order.shippingAddress}">3</td>
-        <td th:text="${order.status}">4</td>
-    </tr> -->
-    
-    <table>
-        <tr th:each="var : ${#vars.getVariableNames()}">
-            <td th:text="${var}"></td>
-            <td th:text="${#vars.getVariable(var)}"></td>
-        </tr>
-        <!-- Adding these manually because they're considered special.
-             see https://github.com/thymeleaf/thymeleaf/blob/thymeleaf-3.0.3.RELEASE/src/main/java/org/thymeleaf/context/WebEngineContext.java#L199
-        -->
-        <tr>
-            <td>param</td>
-            <td th:text="${#vars.getVariable('param')}"></td>
-        </tr>
-        <tr>
-            <td>session</td>
-            <td th:text="${#vars.getVariable('session')}"></td>
-        </tr>
-        <tr>
-            <td>application</td>
-            <td th:text="${#vars.getVariable('application')}"></td>
-        </tr>
-    </table>
+	<table class="table">
+		<thead class="thead-default">
+			<tr>
+				<th>Order ID</th>
+				<th>Shipping Address</th>
+				<th>Date Placed</th>
+				<th>Order Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="order in orderHistoryResults">
+				<td>{{order.orderID}}</td>
+				<td>{{order.shippingAddress}}</td>
+				<td>{{order.datePlaced}}</td>
+				<td>{{order.orderStatus}}</td>
+			</tr>
+		</tbody>
+	</table>
     
 </div>
