@@ -1,4 +1,24 @@
-<div>
+<div ng-controller="Ctrllr">
 	<h1>Order History</h1>
-	
+	<button type="button" class="btn btn-default" ng-click="orderHistoryLoader()">Refresh</button>
+	<br/>
+	<table class="table">
+		<thead class="thead-default">
+			<tr>
+				<th>Order ID</th>
+				<th>Shipping Address</th>
+				<th>Date Placed</th>
+				<th>Order Status</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="order in orderHistoryResults">
+				<td>{{order.orderID}}</td>
+				<td>{{order.shippingAddress}}</td>
+				<td>{{order.datePlaced}}</td>
+				<td>{{order.orderStatus}}</td>
+			</tr>
+		</tbody>
+	</table>
+    
 </div>

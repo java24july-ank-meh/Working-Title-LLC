@@ -87,7 +87,7 @@
 						<div class="buy_div">
 							<p>Stock: {{search_result.stock}}</p>
 							<p>Price: $ {{search_result.price}}</p>
-							<button class="btn btn-default btn-xs" onclick="buyBtnFunc()">Add to Cart</button>
+							<button class="btn btn-default btn-xs" ng-click="buyBtnFunc(search_result.cardID)" sec:authorize="isAuthenticated()">Add to Cart</button>
 						</div>
 					</div>
 				</div>

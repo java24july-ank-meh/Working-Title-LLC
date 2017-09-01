@@ -24,13 +24,10 @@
 	<body>
 		<header class="page-header">
 			<div id="header_banner">
-				<h1>TCG Trading Post</h1>
+				<h1>Thank you!</h1>
 			</div>
 			<div id="nav_bar">
-				<a type="button" id="login_btn" class="btn btn-default btn-sm" th:href="@{/userHome}" sec:authorize="isAnonymous()">Login</a>
-				<a type="button" id="login_btn" class="btn btn-default btn-sm" th:href="@{/userHome}" sec:authorize="isAuthenticated()"><span sec:authentication="name"></span></a>
-				<a type="button" id="card_search_btn"
-					class="btn btn-default btn-sm" href="CardSearch.html" th:href="@{/cardSearch}">Card Search</a>
+				<a type="button" id="login_btn" class="btn btn-default btn-sm" th:href="@{/}">Home</a>
 			</div>
 		</header>
 		<div id="page_body">

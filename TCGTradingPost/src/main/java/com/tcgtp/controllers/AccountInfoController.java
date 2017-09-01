@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -27,7 +28,7 @@ public class AccountInfoController {
 	
 	
 
-	@RequestMapping(value="/accountInfo", method=RequestMethod.GET)
+	@RequestMapping(value="/accountInfoLoad", method=RequestMethod.GET)
 	public ResponseEntity<String> accInfo(Authentication authentication) {
 		
 		System.out.println("principal name: "+authentication.getName());
@@ -46,8 +47,9 @@ public class AccountInfoController {
 		
 		json.addProperty("username", currentUser.getUsername());
 		json.addProperty("email", currentUser.getEmail());
-		json.addProperty("role", gson.toJson(currentUser.getRoles()));
-		json.addProperty("account_status", currentUser.getEnabled().toString());
+		json.addProperty("roles", currentUser.getRoles().toString());
+		json.addProperty("enabled", currentUser.getEnabled().toString());
+		
 		
 		
 		return new ResponseEntity<String>(gson.toJson(json) , HttpStatus.OK);

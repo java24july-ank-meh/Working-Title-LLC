@@ -28,6 +28,12 @@ public class OrderStatus {
 	}
 	
 	// Getters and Setters
+	public void setStatusName(String statusName) {
+		this.statusName = statusName;
+	}
+	public void setStatusID(Long statusID) {
+		this.statusID = statusID;
+	}
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SQ_ORDERSTAT_ID")
@@ -36,23 +42,12 @@ public class OrderStatus {
 	public Long getStatusID() {
 		return statusID;
 	}
-	public void setStatusID(Long statusID) {
-		this.statusID = statusID;
-	}
 	
 	@Column(name="statusName", unique=true, nullable=false)
 	public String getStatusName() {
 		return statusName;
 	}
-	public void setStatusName(String statusName) {
-		this.statusName = statusName;
-	}
 	
-	// to String
-	@Override
-	public String toString() {
-		return "OrderStatus [statusID=" + statusID + ", statusName=" + statusName + "]";
-	}
 	
 	
 	
