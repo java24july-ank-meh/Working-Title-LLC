@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -59,37 +61,17 @@ public class CartController {
 		return "Cart";
 	}
 	
-	@SuppressWarnings("unchecked") // There is nothing wrong with casting "cart" attribute from Object to List
-	@RequestMapping("/getCart")
-	@ResponseBody
-	public ResponseEntity<String> getCart() {
-		Gson gson = new Gson();
-		
-		ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-		
-		List<OrderItem> orderItems = (List<OrderItem>) attributes.getAttribute("cart", 0);
-		
-		List<JsonObject> jsonArr = new ArrayList<>();
-		for (OrderItem i : orderItems) {
-			JsonObject json = new JsonObject();
-			json.addProperty("cardName", i.getItemID().getCardName());
-			json.addProperty("price", i.getItemID().getPrice());
-			json.addProperty("quantity", i.getQuantity());
-			json.addProperty("cardID", i.getItemID().getCardID());
-			jsonArr.add(json);
-		}
-		
-		return new ResponseEntity<String>(gson.toJson(jsonArr), HttpStatus.OK);
-	}
 	
 	@SuppressWarnings("unchecked") // Nothing wrong
 	@RequestMapping(value = "/checkout", method = RequestMethod.POST)
 	public String checkout(Authentication auth, @RequestParam String address) {
 		
 		// Get the user's cart
-		ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
-		List<OrderItem> cart = (List<OrderItem>) attributes.getAttribute("cart", 0);
-		
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		List<OrderItem> cart = (List<OrderItem>) request.getSession().getAttribute("cart");
+		if (cart == null) {
+			cart = new ArrayList<OrderItem>();
+		}
 		
 		// Create new order
 		Order order = new Order();
@@ -124,8 +106,8 @@ public class CartController {
 		
 		
 		// Clear cart
-		cart = null;
-		attributes.setAttribute("cart", cart, 0);
+		cart = new ArrayList<OrderItem>();
+		request.getSession().setAttribute("cart", cart);
 		
 		
 		return "redirect:/thankyou";

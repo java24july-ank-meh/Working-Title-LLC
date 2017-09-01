@@ -3,6 +3,8 @@ package com.tcgtp.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,9 +32,9 @@ public class BuyController {
 	@RequestMapping("/buyItem")
 	public ResponseEntity<String> buyItem(@RequestParam String cardID) {
 		
-		ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.currentRequestAttributes();
+		HttpServletRequest request = ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
 		
-		List<OrderItem> cart = (List<OrderItem>) attributes.getAttribute("cart", 0);
+		List<OrderItem> cart = (List<OrderItem>) request.getSession().getAttribute("cart");
 		if (cart == null) {
 			cart = new ArrayList<OrderItem>();
 		}
@@ -64,7 +66,7 @@ public class BuyController {
 		
 		
 		// Stored cart back in Request Context
-		attributes.setAttribute("cart", cart, 0);
+		request.getSession().setAttribute("cart", cart);
 		
 		
 		// Save inventory item

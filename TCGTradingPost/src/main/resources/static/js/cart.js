@@ -4,6 +4,7 @@ let cartApp = angular.module("cartApp", []);
 cartApp.controller("cartControl", function($scope) {
 	$scope.cart = [];
 	$scope.cartLoader = function() {
+		console.log("cartLoader");
 		let xhr = new XMLHttpRequest();
 		xhr.onreadystatechange = function() {
 			console.log("readystate: "+xhr.readyState+" status: "+xhr.status)

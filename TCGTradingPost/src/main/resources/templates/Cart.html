@@ -48,7 +48,7 @@
 					th:src="@{images/trading_post.jpg}"/>
 			</div>
 			
-			<div id="cart_container" ng-app="cartApp">
+			<div id="cart_container" ng-app="cartApp" ng-controller="cartControl">
 				<h1>Cart</h1>
 				<button type="button" class="btn btn-default btn-sm" ng-click="cartLoader()">Refresh</button>
 				<br/>
